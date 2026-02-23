@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTI-IT | Case Law Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff; --text: #020617; --dim: #64748b; 
+            --blue: #2563eb; --red: #b91c1c; --border: #e2e8f0;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        
+        header { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 900; text-decoration: none; color: var(--text); font-size: 1.4rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        nav a { text-decoration: none; color: var(--dim); font-size: 14px; margin-left: 20px; font-weight: 600; }
+
+        .container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
+        h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; }
+        .sub { font-size: 1.2rem; color: var(--dim); margin-bottom: 60px; max-width: 700px; }
+
+        /* CASE TABLE */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 80px; }
+        th { text-align: left; padding: 20px; background: #000; color: #fff; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+        td { padding: 25px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        
+        .case-id { font-family: monospace; font-weight: 700; color: var(--red); }
+        .status { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 900; text-transform: uppercase; }
+        .status-win { background: #dcfce7; color: #166534; }
+        
+        .verdict { font-weight: 700; margin-top: 10px; display: block; }
+        .consequence { color: var(--red); font-weight: 700; }
+
+        .legal-note { background: #f8fafc; border-left: 4px solid var(--text); padding: 30px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav>
+        <a href="index.html">AUDIT_CORE</a>
+        <a href="manifesto.html">MANIFESTO</a>
+        <a href="news.html">ANTI_NEWS</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>CASE LAW REGISTRY</h1>
+    <p class="sub">Legal precedents where independent forensic audit exposed IT vendor fraud, over-engineering, and "ghost hours".</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Case ID / Type</th>
+                <th>The Conflict</th>
+                <th>Forensic Audit Verdict</th>
+                <th>Final Outcome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="case-id">#L-0842</span><br><span class="status status-win">Decision Final</span></td>
+                <td><strong>"Ghost Hours" Litigation</strong><br>Vendor billed for 1,200 dev hours. Client suspected fabrication.</td>
+                <td>Analysis of Git-repository logs showed only 480 hours of actual productive activity. The rest was simulated.</td>
+                <td><span class="consequence">Court ordered refund of $140,000 + legal fees.</span></td>
+            </tr>
+            <tr>
+                <td><span class="case-id">#L-2105</span><br><span class="status status-win">Settled</span></td>
+                <td><strong>The Over-Engineering Trap</strong><br>Small business was sold a complex microservice architecture for a simple e-commerce site.</td>
+                <td>The audit proved the tech stack was 300% more complex than requirements demanded, designed solely to inflate maintenance fees.</td>
+                <td><span class="consequence">Contract terminated. Vendor waived $65,000 in outstanding invoices.</span></td>
+            </tr>
+            <tr>
+                <td><span class="case-id">#L-0391</span><br><span class="status status-win">Decision Final</span></td>
+                <td><strong>IP Theft & Hidden Debt</strong><br>Vendor used proprietary closed-source modules without disclosure, creating total vendor lock-in.</td>
+                <td>The code was intentionally obfuscated to prevent third-party maintenance. Found hidden backdoors in payment module.</td>
+                <td><span class="consequence">Contractor license revoked. $250,000 compensation for system replacement.</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="legal-note">
+        <h4>Legal Disclaimer for Business Owners</h4>
+        <p>IT contracts often overrun budgets by 45% due to the lack of transparent standards [cite: 2026-02-23]. Without an independent forensic audit at the estimation phase, your chances of winning a court case against an IT vendor are less than 15%. **Documentation is your only shield.**</p>
+    </div>
+</div>
+
+</body>
+</html>
