@@ -6,85 +6,53 @@
     <title>ANTI-IT | Case Law Registry</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #e2e8f0; }
+        :root { --bg: #ffffff; --text: #020617; --dim: #64748b; --red: #b91c1c; --border: #e2e8f0; }
         body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        header { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: 900; text-decoration: none; color: var(--text); font-size: 1.4rem; letter-spacing: -1px; }
-        .logo span { color: var(--red); }
-        nav a { text-decoration: none; color: var(--dim); font-size: 14px; margin-left: 20px; font-weight: 600; }
-        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
-        h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 80px; }
-        th { text-align: left; padding: 20px; background: #000; color: #fff; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
-        td { padding: 25px 20px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 14px; }
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; }
+        .logo span { color: #b91c1c; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link.active { color: #b91c1c; font-weight: 900; border-bottom: 2px solid #b91c1c; }
+        .divider { margin: 0 15px; color: #cbd5e1; }
+        .container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 20px; background: #000; color: #fff; text-transform: uppercase; font-size: 11px; }
+        td { padding: 25px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
         .case-id { font-family: monospace; font-weight: 700; color: var(--red); }
-        .status { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; }
-        .status-win { background: #dcfce7; color: #166534; }
-        .consequence { color: var(--red); font-weight: 700; display: block; margin-top: 10px; }
-        .source-link { font-size: 11px; color: var(--dim); text-decoration: underline; display: block; margin-top: 15px; }
-        
-        /* Video Container Styling */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin-top: 20px; border-radius: 4px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 20px; border-radius: 4px; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body>
-<header>
+
+<header class="universal-header">
     <a href="index.html" class="logo">ANTI<span>-IT</span></a>
-    <nav><a href="index.html">AUDIT_CORE</a><a href="manifesto.html">MANIFESTO</a><a href="scandals.html">SCANDALS</a></nav>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link">DO AUDIT</a><span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a><span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a><span class="divider">|</span>
+        <a href="cases.html" class="nav-link active">CASE LAW</a><span class="divider">|</span>
+        <a href="scandals.html" class="nav-link">SCANDALS</a>
+    </nav>
 </header>
+
 <div class="container">
     <h1>CASE LAW REGISTRY</h1>
-    <p style="color:var(--dim); font-size: 1.2rem; margin-bottom: 60px;">High-stakes legal precedents where IT audits exposed systemic fraud and operational collapse.</p>
     <table>
-        <thead>
-            <tr><th>Case ID / Status</th><th>Conflict</th><th>Forensic Verdict</th><th>Final Outcome</th></tr>
-        </thead>
+        <thead><tr><th>Case ID</th><th>Conflict</th><th>Verdict</th><th>Outcome</th></tr></thead>
         <tbody>
             <tr>
-                <td><span class="case-id">#L-2201</span><br><span class="status status-win">Settled</span></td>
-                <td>
-                    <strong>MillerCoors vs. HCL Technologies</strong><br>
-                    $100M lawsuit over a botched SAP implementation project meant to enhance efficiency.
-                    
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/4I2nZcKB1PY" title="MillerCoors Case Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                <td><span class="case-id">#L-2201</span></td>
+                <td><strong>MillerCoors vs. HCL</strong><p>$100M lawsuit over botched SAP project.</p>
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/4I2nZcKB1PY"></iframe></div>
                 </td>
-                <td>Forensic analysis revealed "personnel swapping" — unqualified staff were used instead of senior experts, leading to massive budget overruns.</td>
-                <td><span class="consequence">Claims resolved amicably in an Illinois federal court; settlement details remain undisclosed.</span>
-                <a href="https://upperedge.com/sap/millercoors-files-100m-suit-hcl-flawed-sap-implementation-know-like-know/" rel="nofollow" class="source-link">Source: UpperEdge</a></td>
+                <td>Forensic audit revealed personnel swapping.</td>
+                <td>Settled in federal court. <br><a href="https://upperedge.com/sap/millercoors-files-100m-suit-hcl-flawed-sap-implementation-know-like-know/" rel="nofollow" style="font-size:10px;">[Source]</a></td>
             </tr>
-            <tr>
-                <td><span class="case-id">#L-0842</span><br><span class="status status-win">Settled</span></td>
-                <td><strong>Hertz vs. Accenture</strong><br>Failure of a $32M digital transformation project.</td>
-                <td>Audit proved the code was non-functional and bypassed professional standards.</td>
-                <td><span class="consequence">Undisclosed settlement + project termination.</span>
-                <a href="https://www.reuters.com/article/idUSKCN1S31Y6/" rel="nofollow" class="source-link">Source: Reuters</a></td>
-            </tr>
-            <tr>
-                <td><span class="case-id">#L-0012</span><br><span class="status status-win">Decision Final</span></td>
-                <td><strong>Post Office (UK) vs. Subpostmasters</strong><br>Defective Horizon system created false accounting deficits.</td>
-                <td>Forensic audit by Second Sight exposed 15 years of hidden system bugs.</td>
-                <td><span class="consequence">£1B+ compensation fund; 100+ criminal convictions overturned.</span>
-                <a href="https://www.bbc.com/news/business-56718036" rel="nofollow" class="source-link">Source: BBC News</a></td>
-            </tr>
-            <tr>
-                <td><span class="case-id">#L-3910</span><br><span class="status status-win">Decision Final</span></td>
-                <td><strong>Revlon vs. SAP / Fujitsu</strong><br>$64M ERP crash leading to stock market panic.</td>
-                <td>Audit found "material weaknesses" in internal controls during software deployment.</td>
-                <td><span class="consequence">Settled via class-action compensation to shareholders.</span>
-                <a href="https://www.bloomberg.com/news/articles/2021-03-22/revlon-sues-fujitsu-over-troubled-erp-software-implementation" rel="nofollow" class="source-link">Source: Bloomberg</a></td>
-            </tr>
-            <tr>
-                <td><span class="case-id">#L-0055</span><br><span class="status status-win">Settled</span></td>
-                <td><strong>NHS (UK) vs. Fujitsu / CSC</strong><br>The £12.7B "National Programme" catastrophe.</td>
-                <td>Systems were over-specified and untestable, resulting in massive public waste.</td>
-                <td><span class="consequence">£700M settlement in favor of supplier after botched termination.</span>
-                <a href="https://www.panorama-consulting.com/nhs-it-system-failure/" rel="nofollow" class="source-link">Source: Panorama Consulting</a></td>
-            </tr>
+            <tr><td><span class="case-id">#L-0842</span></td><td><strong>Hertz vs. Accenture</strong></td><td>Code bypassed professional standards.</td><td>Settlement reached. <br><a href="https://www.reuters.com/article/idUSKCN1S31Y6/" rel="nofollow" style="font-size:10px;">[Source]</a></td></tr>
         </tbody>
     </table>
 </div>
+
 </body>
 </html>
