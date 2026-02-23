@@ -73,23 +73,32 @@
         #console-container { display: none; background: #020617; color: #22c55e; font-family: monospace; padding: 30px; margin-top: 40px; border: 4px solid #000; box-shadow: 20px 20px 0 #000; }
         .log-line { margin: 5px 0; font-size: 14px; opacity: 0; animation: fadeIn 0.1s forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
-        .verdict-box { margin-top: 30px; padding: 20px; text-align: center; font-weight: 900; font-size: 2rem; text-transform: uppercase; display: none; font-family: 'Inter', sans-serif; border: 4px solid; }
+        .verdict-box { margin-top: 30px; padding: 30px; text-align: center; font-weight: 900; font-size: 2rem; text-transform: uppercase; display: none; font-family: 'Inter', sans-serif; border: 4px solid; }
 
         /* TRENDS */
         #trends-block { margin-top: 100px; text-align: center; background: #fff; padding: 60px 40px; border: 1px solid var(--border); }
         .trends-img { width: 100%; max-width: 800px; border: 1px solid var(--border); margin: 30px 0; filter: grayscale(1); }
+
+        /* PRINT STYLES */
+        @media print {
+            body * { visibility: hidden; }
+            #console-container, #console-container * { visibility: visible; }
+            #console-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: 2px solid #000; background: #fff; color: #000; }
+            .log-line { color: #000 !important; }
+            .verdict-box button, .print-hide { display: none !important; }
+        }
     </style>
 </head>
 <body>
 
-<div class="hero-video-container">
+<div class="hero-video-container print-hide">
     <video autoplay muted loop id="bg-video">
         <source src="audit-tech-bg.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div>
 </div>
 
-<div class="ticker-wrap">
+<div class="ticker-wrap print-hide">
     <div class="ticker">
         <span><b>LOSS_ALERT:</b> IT INDUSTRY WASTE EXCEEDS $500B ANNUALLY</span>
         <span><b>MCKINSEY_DATA:</b> 45% OF PROJECTS EXCEED BUDGET</span>
@@ -98,7 +107,7 @@
     </div>
 </div>
 
-<header class="universal-header">
+<header class="universal-header print-hide">
     <a href="index.html" class="logo">ANTI<span>-IT</span></a>
     <nav class="main-nav">
         <a href="index.html" class="nav-link active">DO AUDIT</a>
@@ -113,12 +122,12 @@
     </nav>
 </header>
 
-<section class="hero">
+<section class="hero print-hide">
     <h1>#1 IT Estimate Auditor: <br>Expose Scammers. <span class="accent">Secure Capital.</span></h1>
     <p class="hero-desc">The world’s first autonomous Forensic Protocol designed to dismantle bloated IT proposals and reveal the truth behind the bill.</p>
 </section>
 
-<div class="news-grid">
+<div class="news-grid print-hide">
     <div class="news-card">
         <span class="news-tag">Systemic Failure</span>
         <h3>The Budget Gap</h3>
@@ -137,9 +146,9 @@
 </div>
 
 <div class="container">
-    <h2 class="cta-header">UPLOAD ESTIMATE. <br>GET INSTANT VERDICT.</h2>
+    <h2 class="cta-header print-hide">UPLOAD ESTIMATE. <br>GET INSTANT VERDICT.</h2>
     
-    <div class="audit-card" id="main-audit-form">
+    <div class="audit-card print-hide" id="main-audit-form">
         <label class="field-label">1. Project Context (Business Goal)</label>
         <input type="text" id="ctx" class="input-text" placeholder="e.g. Booking System for 3 Clinics">
         
@@ -156,11 +165,12 @@
     </div>
 
     <div id="console-container">
+        <h3 class="print-hide" style="color: #fff; margin-top: 0; font-family: 'Inter', sans-serif;">FORENSIC LOG:</h3>
         <div id="console-logs"></div>
         <div id="verdict-box" class="verdict-box"></div>
     </div>
 
-    <div class="sandbox-block" id="sandbox">
+    <div class="sandbox-block print-hide" id="sandbox">
         <h4>No file ready? Test the engine.</h4>
         <p style="color: var(--dim); margin-bottom: 25px;">Review our verified B2B examples and see how the forensic AI deconstructs them in real-time.</p>
         <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
@@ -169,15 +179,15 @@
         </div>
     </div>
 
-    <div id="trends-block">
+    <div id="trends-block" class="print-hide">
         <h4 style="color: var(--red); font-family: monospace; font-size: 16px;">[ MARKET SHIFT 2026 ]</h4>
         <h3 style="font-size: 2rem; margin: 10px 0; text-transform: uppercase; font-weight: 900;">The Era of Blind Contracts is Over</h3>
-        <p style="font-size: 1.2rem; color: var(--dim); max-width: 700px; margin: 0 auto;">Businesses are refusing to finance technical jargon. Global demand for independent forensic budget verification has grown 500%.</p>
+        <p style="font-size: 1.2rem; color: var(--dim); max-width: 700px; margin: 0 auto;">Businesses are refusing blind IT contracts. Independent forensic budget verification demand has grown 500%. The era of unchecked estimates is over.</p>
         <img src="trends_proof.jpg" alt="Google Trends Data" class="trends-img">
     </div>
 </div>
 
-<div id="modal-healthy" class="modal-overlay">
+<div id="modal-healthy" class="modal-overlay print-hide">
     <div class="modal-content" style="border-top: 5px solid var(--green);">
         <span class="close-btn" onclick="closeModal('modal-healthy')">&times;</span>
         <span style="color: var(--green); font-weight: 900; font-size: 11px; text-transform: uppercase;">Sample Document A: The Fair Baseline</span>
@@ -195,11 +205,11 @@
             <strong>TOTAL COST: $4,500</strong><br>
             <span style="font-size: 12px; color: var(--dim);">*Monthly Maintenance: $0 (Direct SaaS subscription only)</span>
         </div>
-        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background=var(--green)" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('healthy')">Run Forensic Audit</button>
+        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background='var(--green)'" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('healthy')">Run Forensic Audit</button>
     </div>
 </div>
 
-<div id="modal-toxic" class="modal-overlay">
+<div id="modal-toxic" class="modal-overlay print-hide">
     <div class="modal-content" style="border-top: 5px solid var(--red);">
         <span class="close-btn" onclick="closeModal('modal-toxic')">&times;</span>
         <span style="color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase;">Sample Document B: The Scammer's Trap</span>
@@ -217,7 +227,7 @@
             <strong>TOTAL COST: $78,000</strong><br>
             <span style="font-size: 12px; color: var(--red); font-weight: 700;">*Mandatory SLA & Server Maintenance: $2,500 / month</span>
         </div>
-        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background=var(--red)" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('toxic')">Run Forensic Audit</button>
+        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background='var(--red)'" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('toxic')">Run Forensic Audit</button>
     </div>
 </div>
 
@@ -256,8 +266,7 @@
         "CALCULATING FINAL INTEGRITY SCORE..."
     ];
 
-    function runAuditSimulation(type) {
-        // Close modals and hide original form/sandbox
+    function runAuditSimulation(type, isReal = false) {
         document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
         document.getElementById('main-audit-form').style.display = 'none';
         document.getElementById('sandbox').style.display = 'none';
@@ -281,10 +290,10 @@
                 el.innerText = log;
                 logsDiv.appendChild(el);
             }, delay);
-            delay += 600; // Speed of terminal typing
+            delay += 600; 
         });
 
-        // Show Verdict
+        // Show Verdict and SMART Button
         setTimeout(() => {
             verdictBox.style.display = 'block';
             if (type === 'healthy') {
@@ -299,12 +308,35 @@
                 verdictBox.innerHTML = 'VERDICT: CRITICAL RED (SCAM ALERT)<br><span style="font-size:16px; font-weight:400; color:#fff; display:block; margin-top:10px;">Massive Over-Engineering. Vendor Lock-in traps detected. Do not sign.</span>';
             }
             
-            // Add reset button
-            const resetBtn = document.createElement('button');
-            resetBtn.innerText = "RUN ANOTHER AUDIT";
-            resetBtn.style.cssText = "margin-top:20px; padding:15px; background:#fff; color:#000; font-weight:900; cursor:pointer; border:none; text-transform:uppercase;";
-            resetBtn.onclick = () => location.reload();
-            verdictBox.appendChild(resetBtn);
+            // SMART CTA BUTTON LOGIC
+            const actionBtn = document.createElement('button');
+            actionBtn.style.cssText = "margin-top:30px; padding:20px 40px; background:#fff; color:#000; font-size:18px; font-weight:900; cursor:pointer; border:none; text-transform:uppercase; transition:0.2s; display:block; width:100%;";
+            actionBtn.onmouseover = () => actionBtn.style.background = "#e2e8f0";
+            actionBtn.onmouseout = () => actionBtn.style.background = "#fff";
+
+            if (!isReal) {
+                // DEMO FLOW
+                actionBtn.innerText = "NOW AUDIT YOUR ESTIMATE";
+                actionBtn.onclick = () => {
+                    consoleCont.style.display = 'none';
+                    document.getElementById('main-audit-form').style.display = 'block';
+                    document.getElementById('sandbox').style.display = 'block';
+                    document.getElementById('main-audit-form').scrollIntoView({behavior: 'smooth', block: 'center'});
+                };
+                verdictBox.appendChild(actionBtn);
+            } else {
+                // REAL AUDIT FLOW -> PRINT TO PDF
+                actionBtn.innerText = "DOWNLOAD FORENSIC REPORT (PDF)";
+                actionBtn.onclick = () => window.print();
+                verdictBox.appendChild(actionBtn);
+                
+                // Secondary link to reset
+                const resetLink = document.createElement('a');
+                resetLink.innerText = "Scan another document";
+                resetLink.style.cssText = "display:block; margin-top:20px; color:#94a3b8; font-size:14px; text-decoration:underline; cursor:pointer;";
+                resetLink.onclick = () => location.reload();
+                verdictBox.appendChild(resetLink);
+            }
 
         }, delay + 500);
     }
@@ -312,8 +344,8 @@
     function runRealAudit() {
         const file = document.getElementById('file').files[0];
         if(!file) { alert("ERROR: PLEASE ATTACH ESTIMATE DOCUMENT."); return; }
-        // For real files, simulate toxic by default to prove the point
-        runAuditSimulation('toxic'); 
+        // Pass "true" to trigger the print/PDF logic
+        runAuditSimulation('toxic', true); 
     }
 </script>
 </body>
