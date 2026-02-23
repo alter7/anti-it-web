@@ -22,6 +22,10 @@
         .status-win { background: #dcfce7; color: #166534; }
         .consequence { color: var(--red); font-weight: 700; display: block; margin-top: 10px; }
         .source-link { font-size: 11px; color: var(--dim); text-decoration: underline; display: block; margin-top: 15px; }
+        
+        /* Video Container Styling */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin-top: 20px; border-radius: 4px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body>
@@ -38,8 +42,22 @@
         </thead>
         <tbody>
             <tr>
+                <td><span class="case-id">#L-2201</span><br><span class="status status-win">Settled</span></td>
+                <td>
+                    <strong>MillerCoors vs. HCL Technologies</strong><br>
+                    $100M lawsuit over a botched SAP implementation project meant to enhance efficiency.
+                    
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/4I2nZcKB1PY" title="MillerCoors Case Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </td>
+                <td>Forensic analysis revealed "personnel swapping" — unqualified staff were used instead of senior experts, leading to massive budget overruns.</td>
+                <td><span class="consequence">Claims resolved amicably in an Illinois federal court; settlement details remain undisclosed.</span>
+                <a href="https://upperedge.com/sap/millercoors-files-100m-suit-hcl-flawed-sap-implementation-know-like-know/" rel="nofollow" class="source-link">Source: UpperEdge</a></td>
+            </tr>
+            <tr>
                 <td><span class="case-id">#L-0842</span><br><span class="status status-win">Settled</span></td>
-                <td><strong>Hertz vs. Accenture</strong><br>Failure of a $32M digital transformation.</td>
+                <td><strong>Hertz vs. Accenture</strong><br>Failure of a $32M digital transformation project.</td>
                 <td>Audit proved the code was non-functional and bypassed professional standards.</td>
                 <td><span class="consequence">Undisclosed settlement + project termination.</span>
                 <a href="https://www.reuters.com/article/idUSKCN1S31Y6/" rel="nofollow" class="source-link">Source: Reuters</a></td>
@@ -50,13 +68,6 @@
                 <td>Forensic audit by Second Sight exposed 15 years of hidden system bugs.</td>
                 <td><span class="consequence">£1B+ compensation fund; 100+ criminal convictions overturned.</span>
                 <a href="https://www.bbc.com/news/business-56718036" rel="nofollow" class="source-link">Source: BBC News</a></td>
-            </tr>
-            <tr>
-                <td><span class="case-id">#L-2201</span><br><span class="status status-win">Settled</span></td>
-                <td><strong>MillerCoors vs. HCL Technologies</strong><br>$100M lawsuit over a botched SAP implementation.</td>
-                <td>Forensic analysis revealed "personnel swapping" — unqualified staff billed as senior experts.</td>
-                <td><span class="consequence">Amicable settlement reached; $100M claim dismissed after remediation.</span>
-                <a href="https://upperedge.com/sap/millercoors-files-100m-suit-hcl-flawed-sap-implementation-know-like-know/" rel="nofollow" class="source-link">Source: UpperEdge</a></td>
             </tr>
             <tr>
                 <td><span class="case-id">#L-3910</span><br><span class="status status-win">Decision Final</span></td>
