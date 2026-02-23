@@ -3,247 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTI-IT | Synthetic CTO Protocol</title>
+    <title>ANTI-IT | Forensic CTO Protocol</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root { --main-color: #00ff41; --bg-color: #050505; --dim-color: #003300; --alert-color: #ff3e3e; }
-        body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 900px; width: 100%; background: #000; position: relative; box-shadow: 0 0 25px rgba(0, 255, 65, 0.1); }
-        h1 { font-size: 1.4rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 15px; letter-spacing: 1px; }
+        :root {
+            --primary-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-dim: #64748b;
+            --accent-blue: #2563eb;
+            --accent-red: #ef4444;
+            --accent-green: #22c55e;
+            --border-color: #e2e8f0;
+        }
         
-        /* Manifesto Block */
-        .manifesto-block { border: 1px solid var(--alert-color); padding: 15px; margin: 20px 0; background: rgba(255, 62, 62, 0.05); }
-        .manifesto-title { color: var(--alert-color); font-size: 13px; margin-top: 0; text-align: center; letter-spacing: 1px; }
-        .manifesto-list { font-size: 11px; color: #ccc; padding-left: 20px; line-height: 1.6; margin-bottom: 15px; }
-        .manifesto-highlight { color: var(--main-color); font-weight: bold; text-decoration: underline; cursor: pointer; transition: 0.2s; }
-        .manifesto-highlight:hover { color: #fff; }
-        .manifesto-link { color: var(--alert-color); text-decoration: none; font-size: 11px; border-bottom: 1px dashed var(--alert-color); transition: 0.3s; }
-        .manifesto-link:hover { color: #fff; border-bottom-color: #fff; }
+        body { background: var(--primary-bg); color: var(--text-main); font-family: 'Inter', -apple-system, sans-serif; margin: 0; padding: 0; }
+        
+        /* Navigation Bar */
+        header { background: #fff; border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--text-main); text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--accent-red); }
+        nav { display: flex; gap: 25px; }
+        nav a { text-decoration: none; color: var(--text-dim); font-size: 14px; font-weight: 500; transition: 0.2s; }
+        nav a:hover { color: var(--accent-blue); }
 
-        /* Input Elements */
-        .input-group { margin: 25px 0; display: flex; flex-direction: column; gap: 12px; }
-        input[type="file"] { display: none; }
-        .file-proxy { border: 1px dashed var(--main-color); padding: 15px; text-align: center; cursor: pointer; background: rgba(0,255,0,0.02); transition: 0.2s; }
-        .file-proxy:hover { background: rgba(0,255,0,0.08); }
-        input[type="text"], button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 14px; font-family: inherit; font-size: 14px; outline: none; }
-        input[type="text"]::placeholder { color: #005500; }
-        button { cursor: pointer; font-weight: bold; margin-top: 10px; transition: 0.2s; text-transform: uppercase; }
-        button:hover { background: var(--main-color); color: #000; box-shadow: 0 0 15px var(--main-color); }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Dynamic Elements */
-        #log { font-size: 11px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; border-left: 2px solid var(--dim-color); padding-left: 15px; color: #aaa; }
-        #results { display: none; margin-top: 20px; border-top: 1px double var(--main-color); padding-top: 20px; }
+        /* Manifesto Hero */
+        .hero-banner { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .hero-banner h2 { margin-top: 0; font-size: 14px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-banner p { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+        .hero-banner a { color: var(--accent-blue); text-decoration: none; font-weight: 600; border-bottom: 1px solid; }
+
+        /* Audit Tool Card */
+        .audit-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .field-label { font-size: 12px; font-weight: 700; color: var(--text-dim); margin-bottom: 8px; display: block; text-transform: uppercase; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 20px; font-size: 15px; box-sizing: border-box; }
         
-        /* Report Typography */
-        .block-title { font-weight: bold; border-bottom: 1px solid var(--dim-color); margin-bottom: 10px; padding-bottom: 5px; margin-top: 25px; text-transform: uppercase; font-size: 13px; color: var(--main-color); }
-        .data-content { color: #ccc; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
-        .data-list { color: #ccc; font-size: 13px; line-height: 1.5; padding-left: 20px; }
-        .data-list li { margin-bottom: 8px; }
-        .red-flag { color: var(--alert-color); font-weight: bold; background: rgba(255,0,0,0.1); padding: 10px; border-left: 3px solid var(--alert-color); }
-        .radar-box { max-width: 400px; margin: 30px auto; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 10px; }
+        .file-upload { border: 2px dashed var(--border-color); border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: 0.2s; margin-bottom: 25px; }
+        .file-upload:hover { border-color: var(--accent-blue); background: #f1f5f9; }
+        
+        button.run-btn { width: 100%; background: var(--text-main); color: #fff; border: none; padding: 16px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        button.run-btn:hover { background: var(--accent-blue); transform: translateY(-1px); }
+
+        /* Results Display */
+        #results { margin-top: 40px; display: none; }
+        .result-section { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
+        .verdict-header { font-size: 1.5rem; font-weight: 800; border-left: 4px solid var(--accent-red); padding-left: 20px; margin-bottom: 20px; }
+        .risk-item { background: #fef2f2; border: 1px solid #fee2e2; padding: 15px; border-radius: 6px; color: #991b1b; font-weight: 600; }
+        .radar-box { max-width: 500px; margin: 30px auto; }
+        
+        #log { font-family: monospace; font-size: 12px; color: var(--text-dim); margin-top: 20px; display: none; padding: 15px; background: #f1f5f9; border-radius: 6px; }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        <h1>[ ANTI-IT SYSTEM CORE v4.2 ]</h1>
-        
-        <div class="manifesto-block">
-            <h2 class="manifesto-title">[ INDUSTRY DISRUPTION INITIATIVE ]</h2>
-            <ul class="manifesto-list">
-                <li><a href="manifesto.html#source-mckinsey" style="text-decoration:none;"><span class="manifesto-highlight">McKinsey & Oxford:</span></a> IT projects overrun budgets by 45% on average. 17% become "black swans" with 200%+ overruns.</li>
-                <li><a href="manifesto.html#source-cisq" style="text-decoration:none;"><span class="manifesto-highlight">CISQ Report:</span></a> Poor software quality and technical debt cost the US $2.41 trillion annually.</li>
-                <li><span style="color: var(--main-color); font-weight: bold;">Protocol Objective:</span> Deconstruct bloated estimates. Expose hidden costs. Destroy the padding.</li>
-            </ul>
-            <div style="text-align: center;">
-                <a href="manifesto.html" class="manifesto-link">> READ_FULL_MANIFESTO.TXT</a>
-            </div>
-        </div>
 
-        <div class="input-group">
-            <label style="font-size: 12px;">> MISSION_OBJECTIVE & BUSINESS_SCALE:</label>
-            <input type="text" id="context" placeholder="e.g., Local cafe, simple 1-page site, no payments.">
-            
-            <label style="font-size: 12px;">> CLIENT_GEO_REGION (Impacts market rates):</label>
-            <input type="text" id="location" placeholder="e.g., USA, Germany, Brazil...">
-            
-            <label style="font-size: 12px;">> SOURCE_LOADER:</label>
-            <label for="pdfFile" class="file-proxy" id="proxy-label">ATTACH_VENDOR_PROPOSAL (PDF/DOCX/XLSX/IMG)</label>
-            <input type="file" id="pdfFile" accept=".pdf,.docx,.xlsx,.xls,.csv,.txt,.png,.jpg,.jpeg" onchange="maskFileName()">
-            <div id="status-display" style="text-align:center; font-size:11px; color:#555; margin-top: 5px;">WAITING_FOR_INPUT...</div>
+<header>
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav>
+        <a href="index.html">AUDIT_CORE</a>
+        <a href="manifesto.html">MANIFESTO</a>
+        <a href="cases.html">CASE_LAW</a>
+        <a href="news.html">ANTI_NEWS</a>
+        <a href="methodology.html">METHODOLOGY</a>
+    </nav>
+</header>
 
-            <button onclick="executeProtocol()">RUN_SYNTHETIC_AUDIT (100% FREE PREVIEW)</button>
-        </div>
-
-        <div id="log"></div>
-
-        <div id="results">
-            <div class="block-title">EXECUTIVE_VERDICT</div>
-            <div id="exec-verdict" class="data-content" style="font-weight: bold; color: #fff;"></div>
-
-            <div class="block-title">CRITICAL_RED_FLAG</div>
-            <div id="red-flag" class="data-content red-flag"></div>
-
-            <div class="radar-box"><canvas id="radarChart"></canvas></div>
-
-            <div class="block-title">LINE_BY_LINE_FINANCIAL_AUDIT</div>
-            <ul id="line-audit" class="data-list"></ul>
-
-            <div class="block-title">STACK_SANITY_CHECK</div>
-            <div id="stack-check" class="data-content"></div>
-
-            <div class="block-title">ALTERNATIVE_SOLUTIONS</div>
-            <div id="alt-solutions" class="data-content"></div>
-
-            <div class="block-title">IDEAL_CONTRACTOR_PROFILE</div>
-            <div id="ideal-vendor" class="data-content"></div>
-
-            <div class="block-title">NEGOTIATION_ARSENAL</div>
-            <ul id="neg-script" class="data-list"></ul>
-        </div>
+<div class="container">
+    <div class="hero-banner">
+        <h2>Industry Disruption Protocol</h2>
+        <p>
+            McKinsey & Oxford report that IT projects overrun budgets by <strong>45% on average</strong>. 
+            Poor software quality costs the economy <strong>$2.41 trillion</strong> annually. 
+            We are here to stop the padding.
+        </p>
+        <a href="manifesto.html">Read the Manifesto →</a>
     </div>
 
-    <script>
-        // System Log Simulation
-        const scanSteps = [
-            "HEURISTIC_ENGINE: INITIALIZING...",
-            "OBJECTIVE_MATCHING: PHASE_01_ACTIVE",
-            "STRUCTURAL_ANALYSIS: SCANNING_FOR_OVERHEAD",
-            "MARKET_RATE_BENCHMARKING: CROSS_REFERENCING_GEO_DATA...",
-            "MAINTENANCE_LOOP_DETECTION: RUNNING",
-            "SLA_TRAP_SCAN: SEARCHING_FOR_PATTERNS",
-            "LABOR_UNIT_VALIDATION: PROCESSING...",
-            "INFRASTRUCTURE_AUDIT: PHASE_02_ACTIVE",
-            "VENDOR_LOCK_IN_RISK: EVALUATING",
-            "SYNTHETIC_CONSENSUS: FINALIZING_VERDICT"
-        ];
+    <div class="audit-card">
+        <label class="field-label">1. Describe Business Context & Scale</label>
+        <input type="text" id="context" placeholder="e.g. Small law firm, internal CRM for 5 people.">
 
-        // Obscure original file name
-        function maskFileName() {
-            const input = document.getElementById('pdfFile');
-            const display = document.getElementById('status-display');
-            if (input.files[0]) {
-                const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
-                display.innerText = `READY: SRC_DATA_STREAM_${hex}.RAW`;
-                display.style.color = "#00ff41";
-            }
-        }
+        <label class="field-label">2. Client Region</label>
+        <input type="text" id="location" placeholder="e.g. Germany, UK, USA">
 
-        // Main Execution
-        async function executeProtocol() {
-            const file = document.getElementById('pdfFile').files[0];
-            const context = document.getElementById('context').value;
-            const location = document.getElementById('location').value || "Global Market";
-            
-            if(!file) {
-                alert("PROTOCOL ERROR: ATTACH DATA SOURCE TO PROCEED.");
-                return;
-            }
+        <label class="field-label">3. Upload Vendor Proposal</label>
+        <div class="file-upload" onclick="document.getElementById('pdfFile').click()">
+            <span id="proxy-label">Click to upload PDF, Word, Excel or Screenshot</span>
+            <input type="file" id="pdfFile" style="display:none" onchange="maskFileName()">
+        </div>
+        <div id="status-display" style="font-size: 12px; text-align: center; margin-top: -15px; margin-bottom: 20px; color: var(--text-dim);"></div>
 
-            const logBox = document.getElementById('log');
-            logBox.innerHTML = '';
-            logBox.style.display = "block";
-            document.getElementById('results').style.display = "none";
-
-            // Fake progress logs for psychological effect
-            for(let i=0; i<scanSteps.length; i++) {
-                const line = document.createElement('div');
-                line.innerText = `> [SYS] ${scanSteps[i]}`;
-                logBox.appendChild(line);
-                await new Promise(r => setTimeout(r, 800)); 
-            }
-
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('business_context', context);
-            formData.append('client_location', location);
-
-            try {
-                const res = await fetch('https://anti-it-backend.onrender.com/audit', {
-                    method: 'POST',
-                    body: formData
-                });
-                const data = await res.json();
-                
-                if(data.status === "success") {
-                    logBox.innerHTML += `<div style="color:#00ff41; margin-top:10px;">> AUDIT COMPLETE. PARSING DATA...</div>`;
-                    setTimeout(() => {
-                        logBox.style.display = "none";
-                        renderData(data.audit);
-                    }, 1000);
-                } else {
-                    logBox.innerHTML += `<div style="color:red; font-weight:bold; margin-top:10px;">> ERROR: ${data.error}</div>`;
-                }
-            } catch (e) {
-                logBox.innerHTML += `<div style="color:red; font-weight:bold; margin-top:10px;">> CRITICAL_UPLINK_FAILURE: Backend Server Unreachable.</div>`;
-            }
-        }
-
-        let radarInstance = null;
+        <button class="run-btn" onclick="executeProtocol()">Analyze Estimate</button>
         
-        // Render JSON Response to UI
-        function renderData(audit) {
-            document.getElementById('results').style.display = "block";
-            
-            // Text Blocks
-            document.getElementById('exec-verdict').innerText = audit.executive_verdict || "No data.";
-            document.getElementById('red-flag').innerText = audit.top_red_flag || "No critical flags detected.";
-            document.getElementById('stack-check').innerText = audit.stack_sanity_check || "No data.";
-            document.getElementById('alt-solutions').innerText = audit.alternative_solutions || "No data.";
-            document.getElementById('ideal-vendor').innerText = audit.ideal_contractor || "No data.";
-            
-            // Lists (Arrays)
-            if (audit.line_by_line_audit && Array.isArray(audit.line_by_line_audit)) {
-                document.getElementById('line-audit').innerHTML = audit.line_by_line_audit.map(i => `<li>${i}</li>`).join('');
-            } else {
-                document.getElementById('line-audit').innerHTML = "<li>No specific line items flagged.</li>";
-            }
+        <div id="log"></div>
+    </div>
 
-            if (audit.negotiation_script && Array.isArray(audit.negotiation_script)) {
-                document.getElementById('neg-script').innerHTML = audit.negotiation_script.map(i => `<li>${i}</li>`).join('');
-            } else {
-                document.getElementById('neg-script').innerHTML = "<li>No script generated.</li>";
-            }
+    <div id="results">
+        <div class="result-section">
+            <div class="field-label">Executive Verdict</div>
+            <div id="exec-verdict" class="verdict-header"></div>
+        </div>
 
-            // Radar Chart Visualization
-            const ctx = document.getElementById('radarChart').getContext('2d');
-            if (radarInstance) radarInstance.destroy();
-            
-            const riskData = audit.risk_radar || [0,0,0,0,0];
-            
-            radarInstance = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Architecture Overkill', 'Price Inflation', 'Maintenance Cost', 'Security Risks', 'Vendor Lock-in'],
-                    datasets: [{
-                        label: 'Risk Level (0-100)',
-                        data: riskData,
-                        backgroundColor: 'rgba(255, 62, 62, 0.2)',
-                        borderColor: '#ff3e3e',
-                        borderWidth: 1.5,
-                        pointBackgroundColor: '#ff3e3e',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#ff3e3e'
-                    }]
-                },
-                options: { 
-                    scales: { 
-                        r: { 
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' }, 
-                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' }, 
-                            ticks: { display: false, stepSize: 20 }, 
-                            min: 0, 
-                            max: 100,
-                            pointLabels: { color: '#00ff41', font: { family: 'Courier New', size: 10 } }
-                        } 
-                    }, 
-                    plugins: { legend: { display: false } } 
-                }
-            });
-            
-            // Scroll to results smoothly
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        <div class="result-section">
+            <div class="field-label">Critical Red Flag</div>
+            <div id="red-flag" class="risk-item"></div>
+        </div>
+
+        <div class="radar-box"><canvas id="radarChart"></canvas></div>
+
+        <div class="result-section">
+            <div class="field-label">Line-by-Line Financial Audit</div>
+            <ul id="line-audit" style="font-size: 14px; line-height: 1.8; color: var(--text-dim);"></ul>
+        </div>
+
+        <div class="result-section">
+            <div class="field-label">Ideal Contractor Profile</div>
+            <div id="ideal-vendor" style="font-size: 14px; color: var(--text-main);"></div>
+        </div>
+
+        <div class="result-section">
+            <div class="field-label">Negotiation Script</div>
+            <ul id="neg-script" style="font-size: 14px; color: var(--accent-blue); font-weight: 500;"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function maskFileName() {
+        const input = document.getElementById('pdfFile');
+        const display = document.getElementById('status-display');
+        if (input.files[0]) {
+            const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
+            display.innerText = `Object Loaded: SRC_FILE_${hex}.DATA`;
+            display.style.color = "var(--accent-green)";
         }
-    </script>
+    }
+
+    async function executeProtocol() {
+        const file = document.getElementById('pdfFile').files[0];
+        const context = document.getElementById('context').value;
+        const location = document.getElementById('location').value || "Global";
+        if(!file) return alert("Please upload a file.");
+
+        const log = document.getElementById('log');
+        log.style.display = "block";
+        log.innerText = "> Uplink active. Analyzing data patterns...";
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('business_context', context);
+        formData.append('client_location', location);
+
+        try {
+            const res = await fetch('https://anti-it-backend.onrender.com/audit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await res.json();
+            log.style.display = "none";
+            renderData(data.audit);
+        } catch (e) {
+            log.innerText = "Error: Protocol uplink failure.";
+        }
+    }
+
+    let radarInstance = null;
+    function renderData(audit) {
+        document.getElementById('results').style.display = "block";
+        document.getElementById('exec-verdict').innerText = audit.executive_verdict;
+        document.getElementById('red-flag').innerText = audit.top_red_flag;
+        document.getElementById('line-audit').innerHTML = audit.line_by_line_audit.map(i => `<li>${i}</li>`).join('');
+        document.getElementById('ideal-vendor').innerText = audit.ideal_contractor;
+        document.getElementById('neg-script').innerHTML = audit.negotiation_script.map(i => `<li>${i}</li>`).join('');
+
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        if (radarInstance) radarInstance.destroy();
+        radarInstance = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Architecture', 'Price', 'Maintenance', 'Security', 'Vendor Lock'],
+                datasets: [{
+                    data: audit.risk_radar || [0,0,0,0,0],
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderColor: '#2563eb',
+                    borderWidth: 2
+                }]
+            },
+            options: { scales: { r: { ticks: { display: false }, min: 0, max: 100 } }, plugins: { legend: { display: false } } }
+        });
+        window.scrollTo({ top: document.getElementById('results').offsetTop - 100, behavior: 'smooth' });
+    }
+</script>
 </body>
 </html>
