@@ -40,6 +40,16 @@
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         .source-link { font-size: 11px; font-weight: 700; color: var(--dim); text-decoration: underline; text-transform: uppercase; display: inline-block; margin-top: 15px; }
+
+        /* THE HOOK BOX */
+        .court-hook { background: #f8fafc; border: 5px solid #000; padding: 60px 40px; margin: 100px 0; text-align: center; box-shadow: 20px 20px 0 var(--red); }
+        .hook-title { font-size: 2.8rem; font-weight: 900; color: #000; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 20px; line-height: 1; }
+        .hook-desc { color: var(--dim); font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .free-badge { display: inline-block; background: var(--red); color: #fff; padding: 5px 15px; font-weight: 900; font-size: 14px; margin-bottom: 20px; text-transform: uppercase; }
+        .btn-action { display: inline-block; background: #000; color: #fff; text-decoration: none; padding: 25px 60px; font-size: 22px; font-weight: 900; text-transform: uppercase; transition: 0.2s; }
+        .btn-action:hover { background: var(--blue); transform: translate(-5px, -5px); box-shadow: 10px 10px 0 #000; }
+        .contact-info { margin-top: 30px; font-size: 14px; color: var(--dim); }
+        .contact-info a { color: var(--text); font-weight: 700; }
     </style>
 </head>
 <body>
@@ -61,7 +71,7 @@
 
 <div class="container">
     <h1>CASE LAW REGISTRY</h1>
-    <p class="sub-header">Verified legal precedents where independent forensic audits exposed vendor fraud, personnel swapping, and catastrophic over-engineering.</p>
+    <p class="sub-header">Independent forensic audits are your only weapon in court. Don't wait until the litigation starts.</p>
 
     <table>
         <thead>
@@ -77,62 +87,58 @@
                 <td><span class="case-id">#L-2201</span><span class="status-badge status-win">Decision Final</span></td>
                 <td>
                     <strong>MillerCoors vs. HCL Technologies</strong><br>
-                    A $100M lawsuit regarding a botched SAP implementation. The client alleged project mismanagement and lack of professional standards.
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/4I2nZcKB1PY" allowfullscreen></iframe>
-                    </div>
+                    $100M lawsuit regarding botched SAP implementation.
+                    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/4I2nZcKB1PY" allowfullscreen></iframe></div>
                 </td>
-                <td><span class="verdict-label">Verdict: Personnel Swapping</span>Audit revealed that the vendor billed senior expert rates while actually deploying junior, unqualified staff.</td>
-                <td><span class="consequence">Undisclosed settlement; claims dismissed after remediation.</span>
+                <td><span class="verdict-label">Verdict: Personnel Swapping</span>Vendor deployed junior staff while billing for senior experts.</td>
+                <td><span class="consequence">Settled after forensic exposure.</span>
                 <a href="https://upperedge.com/sap/millercoors-files-100m-suit-hcl-flawed-sap-implementation-know-like-know/" rel="nofollow" class="source-link">Source: UpperEdge</a></td>
             </tr>
-
             <tr>
                 <td><span class="case-id">#L-0842</span><span class="status-badge status-win">Settled</span></td>
-                <td>
-                    <strong>Hertz vs. Accenture</strong><br>
-                    Failure of a $32M digital transformation. The vendor delivered a non-responsive website that ignored agreed-upon requirements.
-                </td>
-                <td><span class="verdict-label">Verdict: Professional Negligence</span>Forensic code review proved the product was not "professional quality" and missed critical functional milestones.</td>
-                <td><span class="consequence">Undisclosed settlement fund; contract terminated.</span>
+                <td><strong>Hertz vs. Accenture</strong><br>Failure of a $32M digital transformation.</td>
+                <td><span class="verdict-label">Verdict: Professional Negligence</span>Proven lack of professional quality and missed milestones.</td>
+                <td><span class="consequence">Undisclosed settlement fund.</span>
                 <a href="https://www.reuters.com/article/idUSKCN1S31Y6/" rel="nofollow" class="source-link">Source: Reuters</a></td>
             </tr>
-
             <tr>
                 <td><span class="case-id">#L-0012</span><span class="status-badge status-win">Decision Final</span></td>
-                <td>
-                    <strong>Post Office (UK) vs. Subpostmasters</strong><br>
-                    The "Horizon" system created false shortfalls in thousands of branch accounts, leading to wrongful prosecutions.
-                </td>
-                <td><span class="verdict-label">Verdict: Hidden System Defects</span>Independent auditors (Second Sight) exposed that the system was riddled with bugs the vendor failed to disclose for 15 years.</td>
-                <td><span class="consequence">£1B+ compensation; 100+ criminal convictions overturned.</span>
+                <td><strong>Post Office (UK) vs. Subpostmasters</strong></td>
+                <td><span class="verdict-label">Verdict: Hidden System Defects</span>15 years of undisclosed software bugs.</td>
+                <td><span class="consequence">£1B+ compensation fund.</span>
                 <a href="https://www.bbc.com/news/business-56718036" rel="nofollow" class="source-link">Source: BBC News</a></td>
             </tr>
-
             <tr>
                 <td><span class="case-id">#L-3910</span><span class="status-badge status-win">Decision Final</span></td>
-                <td>
-                    <strong>Revlon vs. SAP / Fujitsu</strong><br>
-                    An ERP launch disaster that caused a $64M drop in stock value and paralyzed the supply chain for months.
-                </td>
-                <td><span class="verdict-label">Verdict: Material Weakness</span>The audit confirmed that critical internal controls were bypassed during the high-risk implementation phase.</td>
-                <td><span class="consequence">Class-action settlement paid to shareholders for undisclosed IT risks.</span>
+                <td><strong>Revlon vs. SAP / Fujitsu</strong></td>
+                <td><span class="verdict-label">Verdict: Material Weakness</span>Bypassed internal controls during deployment.</td>
+                <td><span class="consequence">Class-action shareholder settlement.</span>
                 <a href="https://www.bloomberg.com/news/articles/2021-03-22/revlon-sues-fujitsu-over-troubled-erp-software-implementation" rel="nofollow" class="source-link">Source: Bloomberg</a></td>
             </tr>
-
             <tr>
                 <td><span class="case-id">#L-0055</span><span class="status-badge status-win">Settled</span></td>
-                <td>
-                    <strong>NHS vs. Fujitsu / CSC</strong><br>
-                    The £12.7B "National Programme for IT" — often cited as the largest IT failure in public sector history.
-                </td>
-                <td><span class="verdict-label">Verdict: Over-Specification Waste</span>Systems were designed with massive unnecessary complexity, making them untestable and unusable.</td>
-                <td><span class="consequence">£700M payout to the supplier after a botched contract termination.</span>
+                <td><strong>NHS vs. Fujitsu / CSC</strong></td>
+                <td><span class="verdict-label">Verdict: Over-Specification Waste</span>Untestable, unusable system architecture.</td>
+                <td><span class="consequence">£700M payout to supplier due to botched contract.</span>
                 <a href="https://www.panorama-consulting.com/nhs-it-system-failure/" rel="nofollow" class="source-link">Source: Panorama Consulting</a></td>
             </tr>
         </tbody>
     </table>
-</div>
 
+    <div class="court-hook">
+        <div class="free-badge">MISSION ALERT: CORE AUDIT IS CURRENTLY FREE</div>
+        <div class="hook-title">STOP FUNDING YOUR VENDOR'S LEGAL TEAM.</div>
+        <div class="hook-desc">
+            Why spend millions on lawyers and years in court sessions? 
+            Audit your estimate now to secure your contract before it's too late.
+        </div>
+        <a href="index.html" class="btn-action">START FREE AUDIT NOW</a>
+        <div class="contact-info">
+            Need deep-dive forensic analysis or individual legal-tech consulting? <br>
+            Reach us directly at: <a href="mailto:audit@anti-it.com">audit@anti-it.com</a>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
