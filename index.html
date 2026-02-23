@@ -11,15 +11,23 @@
         .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 800px; width: 100%; box-shadow: 0 0 20px rgba(0, 255, 65, 0.1); }
         h1 { font-size: 1.5rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; }
         .input-group { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-        input, button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 12px; font-family: inherit; font-size: 14px; outline: none; }
+        
+        /* Скрываем стандартный инпут и делаем свой кастомный */
+        input[type="file"] { display: none; }
+        .custom-file-upload { border: 1px solid var(--main-color); display: inline-block; padding: 12px; cursor: pointer; text-align: center; transition: 0.3s; }
+        .custom-file-upload:hover { background: rgba(0, 255, 65, 0.1); }
+        
+        input[type="text"], button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 12px; font-family: inherit; font-size: 14px; outline: none; }
         button { cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; }
         button:hover { background: var(--main-color); color: #000; }
+        
         #log { font-size: 12px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; line-height: 1.4; }
         .progress-container { height: 2px; width: 100%; background: #111; margin: 10px 0; display: none; }
         #progress { height: 100%; background: var(--main-color); width: 0%; transition: width 0.4s; }
         #results { display: none; border-top: 1px double var(--main-color); margin-top: 30px; padding-top: 20px; }
         .radar-box { max-width: 450px; margin: 0 auto; }
-        #audit-text { background: #000; border: 1px solid #1a1a1a; padding: 15px; color: #aaa; overflow-x: auto; }
+        #audit-text { background: #000; border: 1px solid #1a1a1a; padding: 15px; color: #aaa; overflow-x: auto; white-space: pre-wrap; font-size: 12px; margin-top: 20px; line-height: 1.5; }
+        #file-name-display { font-size: 10px; opacity: 0.6; text-align: center; }
     </style>
 </head>
 <body>
@@ -30,8 +38,14 @@
         <div class="input-group">
             <label>> ENTER BUSINESS CONTEXT:</label>
             <input type="text" id="context" placeholder="e.g., Simple booking site for local salon">
+            
             <label>> UPLOAD PROPOSAL DATA (PDF):</label>
-            <input type="file" id="pdfFile" accept=".pdf">
+            <label for="pdfFile" class="custom-file-upload" id="file-label">
+                SELECT DOCUMENT (PDF)
+            </label>
+            <input type="file" id="pdfFile" accept=".pdf" onchange="updateFileName()">
+            <div id="file-name-display">NO_FILE_ATTACHED</div>
+
             <button onclick="runProtocol()">INITIATE DEEP SCAN</button>
         </div>
 
@@ -41,7 +55,7 @@
         <div id="results">
             <h2 style="text-align: center;">AUDIT COMPLETE. STATUS: <span id="verdict" style="color: #ff3e3e;">[CALCULATED]</span></h2>
             <div class="radar-box"><canvas id="radarChart"></canvas></div>
-            <div id="audit-text" style="white-space: pre-wrap; margin-top: 20px; font-size: 12px;"></div>
+            <div id="audit-text"></div>
         </div>
     </div>
 
@@ -59,6 +73,12 @@
             "Finalizing Synthetic CTO Consensus..."
         ];
 
+        function updateFileName() {
+            const input = document.getElementById('pdfFile');
+            const display = document.getElementById('file-name-display');
+            display.innerText = input.files[0] ? `FILE_READY: ${input.files[0].name.toUpperCase()}` : "NO_FILE_ATTACHED";
+        }
+
         async function runProtocol() {
             const file = document.getElementById('pdfFile').files[0];
             const context = document.getElementById('context').value;
@@ -71,7 +91,6 @@
             document.getElementById('progress-container').style.display = "block";
             document.getElementById('results').style.display = "none";
 
-            // Simulated Deep Scan (Smoke Screen)
             for(let i=0; i<logs.length; i++) {
                 const line = document.createElement('div');
                 line.innerText = `> ${logs[i]}`;
@@ -80,7 +99,6 @@
                 await new Promise(r => setTimeout(r, 1200)); 
             }
 
-            // Real Backend Call to your Render server
             const formData = new FormData();
             formData.append('file', file);
             formData.append('business_context', context);
@@ -101,7 +119,6 @@
             document.getElementById('results').style.display = "block";
             document.getElementById('audit-text').innerText = data.audit;
             
-            // Simple Radar Chart Simulation
             const ctx = document.getElementById('radarChart').getContext('2d');
             new Chart(ctx, {
                 type: 'radar',
@@ -109,7 +126,7 @@
                     labels: ['Architecture', 'Tech Stack', 'Pricing', 'Maintenance', 'Security'],
                     datasets: [{
                         label: 'Risk Profile',
-                        data: [80, 70, 95, 85, 60],
+                        data: [85, 75, 90, 80, 65],
                         fill: true,
                         backgroundColor: 'rgba(0, 255, 65, 0.2)',
                         borderColor: '#00ff41',
