@@ -6,64 +6,109 @@
     <title>ANTI-IT | Synthetic CTO Protocol</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root { --main-color: #00ff41; --bg-color: #050505; --dim-color: #003300; }
+        :root { --main-color: #00ff41; --bg-color: #050505; --dim-color: #003300; --alert-color: #ff3e3e; }
         body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 850px; width: 100%; box-shadow: 0 0 25px rgba(0, 255, 65, 0.15); background: #000; }
-        h1 { font-size: 1.4rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 15px; letter-spacing: 2px; }
+        .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 900px; width: 100%; background: #000; position: relative; box-shadow: 0 0 25px rgba(0, 255, 65, 0.1); }
+        h1 { font-size: 1.4rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 15px; letter-spacing: 1px; }
+        
+        /* Manifesto Block */
+        .manifesto-block { border: 1px solid var(--alert-color); padding: 15px; margin: 20px 0; background: rgba(255, 62, 62, 0.05); }
+        .manifesto-title { color: var(--alert-color); font-size: 13px; margin-top: 0; text-align: center; letter-spacing: 1px; }
+        .manifesto-list { font-size: 11px; color: #ccc; padding-left: 20px; line-height: 1.6; margin-bottom: 15px; }
+        .manifesto-highlight { color: var(--main-color); font-weight: bold; text-decoration: underline; cursor: pointer; transition: 0.2s; }
+        .manifesto-highlight:hover { color: #fff; }
+        .manifesto-link { color: var(--alert-color); text-decoration: none; font-size: 11px; border-bottom: 1px dashed var(--alert-color); transition: 0.3s; }
+        .manifesto-link:hover { color: #fff; border-bottom-color: #fff; }
+
+        /* Input Elements */
         .input-group { margin: 25px 0; display: flex; flex-direction: column; gap: 12px; }
-        
-        /* Masking the native file input to avoid local language traces */
         input[type="file"] { display: none; }
-        .file-proxy { border: 1px dashed var(--main-color); padding: 15px; text-align: center; cursor: pointer; transition: 0.2s; background: rgba(0,255,0,0.02); }
+        .file-proxy { border: 1px dashed var(--main-color); padding: 15px; text-align: center; cursor: pointer; background: rgba(0,255,0,0.02); transition: 0.2s; }
         .file-proxy:hover { background: rgba(0,255,0,0.08); }
-        
         input[type="text"], button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 14px; font-family: inherit; font-size: 14px; outline: none; }
-        button { cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+        input[type="text"]::placeholder { color: #005500; }
+        button { cursor: pointer; font-weight: bold; margin-top: 10px; transition: 0.2s; text-transform: uppercase; }
         button:hover { background: var(--main-color); color: #000; box-shadow: 0 0 15px var(--main-color); }
         
-        #log { font-size: 11px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; border-left: 2px solid var(--dim-color); padding-left: 15px; }
-        .progress-container { height: 1px; width: 100%; background: var(--dim-color); margin: 10px 0; display: none; }
-        #progress { height: 100%; background: var(--main-color); width: 0%; transition: width 0.4s; }
+        /* Dynamic Elements */
+        #log { font-size: 11px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; border-left: 2px solid var(--dim-color); padding-left: 15px; color: #aaa; }
+        #results { display: none; margin-top: 20px; border-top: 1px double var(--main-color); padding-top: 20px; }
         
-        #results { display: none; border-top: 1px double var(--main-color); margin-top: 30px; padding-top: 25px; }
-        .radar-box { max-width: 400px; margin: 0 auto; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 10px; }
-        #audit-text { background: #020202; border: 1px solid #111; padding: 20px; color: #888; white-space: pre-wrap; font-size: 12px; margin-top: 25px; line-height: 1.6; letter-spacing: 0.5px; }
-        #status-display { font-size: 10px; text-align: center; color: var(--dim-color); text-transform: uppercase; }
+        /* Report Typography */
+        .block-title { font-weight: bold; border-bottom: 1px solid var(--dim-color); margin-bottom: 10px; padding-bottom: 5px; margin-top: 25px; text-transform: uppercase; font-size: 13px; color: var(--main-color); }
+        .data-content { color: #ccc; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
+        .data-list { color: #ccc; font-size: 13px; line-height: 1.5; padding-left: 20px; }
+        .data-list li { margin-bottom: 8px; }
+        .red-flag { color: var(--alert-color); font-weight: bold; background: rgba(255,0,0,0.1); padding: 10px; border-left: 3px solid var(--alert-color); }
+        .radar-box { max-width: 400px; margin: 30px auto; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 10px; }
     </style>
 </head>
 <body>
     <div class="terminal">
         <h1>[ ANTI-IT SYSTEM CORE v4.2 ]</h1>
-        <p style="font-size: 11px; text-align: center; opacity: 0.6; margin-top: -10px;">AUTHORIZED ACCESS ONLY | DEEP FORENSIC MODE</p>
-
-        <div class="input-group">
-            <label style="font-size: 12px;">> TARGET_CONTEXT:</label>
-            <input type="text" id="context" placeholder="e.g. ENTER_BUSINESS_DOMAIN_HERE">
-            
-            <label style="font-size: 12px;">> SOURCE_LOADER:</label>
-            <label for="pdfFile" class="file-proxy" id="proxy-label">ATTACH_DATA_SOURCE (PDF/DOCX/XLSX/IMG)</label>
-            <input type="file" id="pdfFile" accept=".pdf,.docx,.xlsx,.xls,.csv,.txt,.png,.jpg,.jpeg" onchange="maskFileName()">
-            <div id="status-display">WAITING_FOR_INPUT...</div>
-
-            <button onclick="executeProtocol()">RUN_SYNTHETIC_AUDIT</button>
+        
+        <div class="manifesto-block">
+            <h2 class="manifesto-title">[ INDUSTRY DISRUPTION INITIATIVE ]</h2>
+            <ul class="manifesto-list">
+                <li><a href="manifesto.html#source-mckinsey" style="text-decoration:none;"><span class="manifesto-highlight">McKinsey & Oxford:</span></a> IT projects overrun budgets by 45% on average. 17% become "black swans" with 200%+ overruns.</li>
+                <li><a href="manifesto.html#source-cisq" style="text-decoration:none;"><span class="manifesto-highlight">CISQ Report:</span></a> Poor software quality and technical debt cost the US $2.41 trillion annually.</li>
+                <li><span style="color: var(--main-color); font-weight: bold;">Protocol Objective:</span> Deconstruct bloated estimates. Expose hidden costs. Destroy the padding.</li>
+            </ul>
+            <div style="text-align: center;">
+                <a href="manifesto.html" class="manifesto-link">> READ_FULL_MANIFESTO.TXT</a>
+            </div>
         </div>
 
-        <div id="progress-container" class="progress-container"><div id="progress"></div></div>
+        <div class="input-group">
+            <label style="font-size: 12px;">> MISSION_OBJECTIVE & BUSINESS_SCALE:</label>
+            <input type="text" id="context" placeholder="e.g., Local cafe, simple 1-page site, no payments.">
+            
+            <label style="font-size: 12px;">> CLIENT_GEO_REGION (Impacts market rates):</label>
+            <input type="text" id="location" placeholder="e.g., USA, Germany, Brazil...">
+            
+            <label style="font-size: 12px;">> SOURCE_LOADER:</label>
+            <label for="pdfFile" class="file-proxy" id="proxy-label">ATTACH_VENDOR_PROPOSAL (PDF/DOCX/XLSX/IMG)</label>
+            <input type="file" id="pdfFile" accept=".pdf,.docx,.xlsx,.xls,.csv,.txt,.png,.jpg,.jpeg" onchange="maskFileName()">
+            <div id="status-display" style="text-align:center; font-size:11px; color:#555; margin-top: 5px;">WAITING_FOR_INPUT...</div>
+
+            <button onclick="executeProtocol()">RUN_SYNTHETIC_AUDIT (100% FREE PREVIEW)</button>
+        </div>
+
         <div id="log"></div>
 
         <div id="results">
-            <h3 style="text-align: center; font-size: 14px;">VERDICT_REPORT: <span id="verdict" style="color: #ff3e3e;">[CALCULATED]</span></h3>
+            <div class="block-title">EXECUTIVE_VERDICT</div>
+            <div id="exec-verdict" class="data-content" style="font-weight: bold; color: #fff;"></div>
+
+            <div class="block-title">CRITICAL_RED_FLAG</div>
+            <div id="red-flag" class="data-content red-flag"></div>
+
             <div class="radar-box"><canvas id="radarChart"></canvas></div>
-            <div id="audit-text"></div>
+
+            <div class="block-title">LINE_BY_LINE_FINANCIAL_AUDIT</div>
+            <ul id="line-audit" class="data-list"></ul>
+
+            <div class="block-title">STACK_SANITY_CHECK</div>
+            <div id="stack-check" class="data-content"></div>
+
+            <div class="block-title">ALTERNATIVE_SOLUTIONS</div>
+            <div id="alt-solutions" class="data-content"></div>
+
+            <div class="block-title">IDEAL_CONTRACTOR_PROFILE</div>
+            <div id="ideal-vendor" class="data-content"></div>
+
+            <div class="block-title">NEGOTIATION_ARSENAL</div>
+            <ul id="neg-script" class="data-list"></ul>
         </div>
     </div>
 
     <script>
+        // System Log Simulation
         const scanSteps = [
             "HEURISTIC_ENGINE: INITIALIZING...",
             "OBJECTIVE_MATCHING: PHASE_01_ACTIVE",
             "STRUCTURAL_ANALYSIS: SCANNING_FOR_OVERHEAD",
-            "GLOBAL_RATE_INDEX: CROSS_REFERENCING...",
+            "MARKET_RATE_BENCHMARKING: CROSS_REFERENCING_GEO_DATA...",
             "MAINTENANCE_LOOP_DETECTION: RUNNING",
             "SLA_TRAP_SCAN: SEARCHING_FOR_PATTERNS",
             "LABOR_UNIT_VALIDATION: PROCESSING...",
@@ -72,39 +117,45 @@
             "SYNTHETIC_CONSENSUS: FINALIZING_VERDICT"
         ];
 
+        // Obscure original file name
         function maskFileName() {
             const input = document.getElementById('pdfFile');
             const display = document.getElementById('status-display');
             if (input.files[0]) {
-                const randomHex = Math.random().toString(16).substring(2, 8).toUpperCase();
-                display.innerText = `READY: SRC_DATA_STREAM_${randomHex}.RAW`;
+                const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
+                display.innerText = `READY: SRC_DATA_STREAM_${hex}.RAW`;
                 display.style.color = "#00ff41";
             }
         }
 
+        // Main Execution
         async function executeProtocol() {
             const file = document.getElementById('pdfFile').files[0];
             const context = document.getElementById('context').value;
-            if(!file) return;
+            const location = document.getElementById('location').value || "Global Market";
+            
+            if(!file) {
+                alert("PROTOCOL ERROR: ATTACH DATA SOURCE TO PROCEED.");
+                return;
+            }
 
             const logBox = document.getElementById('log');
-            const pBar = document.getElementById('progress');
             logBox.innerHTML = '';
             logBox.style.display = "block";
-            document.getElementById('progress-container').style.display = "block";
             document.getElementById('results').style.display = "none";
 
+            // Fake progress logs for psychological effect
             for(let i=0; i<scanSteps.length; i++) {
                 const line = document.createElement('div');
-                line.innerText = `[SYS] ${scanSteps[i]}`;
+                line.innerText = `> [SYS] ${scanSteps[i]}`;
                 logBox.appendChild(line);
-                pBar.style.width = ((i+1) * 10) + "%";
-                await new Promise(r => setTimeout(r, 1100)); 
+                await new Promise(r => setTimeout(r, 800)); 
             }
 
             const formData = new FormData();
             formData.append('file', file);
             formData.append('business_context', context);
+            formData.append('client_location', location);
 
             try {
                 const res = await fetch('https://anti-it-backend.onrender.com/audit', {
@@ -112,37 +163,86 @@
                     body: formData
                 });
                 const data = await res.json();
-                displayResults(data);
+                
+                if(data.status === "success") {
+                    logBox.innerHTML += `<div style="color:#00ff41; margin-top:10px;">> AUDIT COMPLETE. PARSING DATA...</div>`;
+                    setTimeout(() => {
+                        logBox.style.display = "none";
+                        renderData(data.audit);
+                    }, 1000);
+                } else {
+                    logBox.innerHTML += `<div style="color:red; font-weight:bold; margin-top:10px;">> ERROR: ${data.error}</div>`;
+                }
             } catch (e) {
-                const errorLine = document.createElement('div');
-                errorLine.innerText = "[!] UPLINK_CRITICAL_ERROR";
-                errorLine.style.color = "red";
-                logBox.appendChild(errorLine);
+                logBox.innerHTML += `<div style="color:red; font-weight:bold; margin-top:10px;">> CRITICAL_UPLINK_FAILURE: Backend Server Unreachable.</div>`;
             }
         }
 
-        function displayResults(data) {
+        let radarInstance = null;
+        
+        // Render JSON Response to UI
+        function renderData(audit) {
             document.getElementById('results').style.display = "block";
-            document.getElementById('audit-text').innerText = data.audit;
             
+            // Text Blocks
+            document.getElementById('exec-verdict').innerText = audit.executive_verdict || "No data.";
+            document.getElementById('red-flag').innerText = audit.top_red_flag || "No critical flags detected.";
+            document.getElementById('stack-check').innerText = audit.stack_sanity_check || "No data.";
+            document.getElementById('alt-solutions').innerText = audit.alternative_solutions || "No data.";
+            document.getElementById('ideal-vendor').innerText = audit.ideal_contractor || "No data.";
+            
+            // Lists (Arrays)
+            if (audit.line_by_line_audit && Array.isArray(audit.line_by_line_audit)) {
+                document.getElementById('line-audit').innerHTML = audit.line_by_line_audit.map(i => `<li>${i}</li>`).join('');
+            } else {
+                document.getElementById('line-audit').innerHTML = "<li>No specific line items flagged.</li>";
+            }
+
+            if (audit.negotiation_script && Array.isArray(audit.negotiation_script)) {
+                document.getElementById('neg-script').innerHTML = audit.negotiation_script.map(i => `<li>${i}</li>`).join('');
+            } else {
+                document.getElementById('neg-script').innerHTML = "<li>No script generated.</li>";
+            }
+
+            // Radar Chart Visualization
             const ctx = document.getElementById('radarChart').getContext('2d');
-            new Chart(ctx, {
+            if (radarInstance) radarInstance.destroy();
+            
+            const riskData = audit.risk_radar || [0,0,0,0,0];
+            
+            radarInstance = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Architecture', 'Tech Stack', 'Pricing', 'Maintenance', 'Security'],
+                    labels: ['Architecture Overkill', 'Price Inflation', 'Maintenance Cost', 'Security Risks', 'Vendor Lock-in'],
                     datasets: [{
-                        data: [85, 75, 95, 80, 70],
-                        backgroundColor: 'rgba(0, 255, 65, 0.15)',
-                        borderColor: '#00ff41',
-                        borderWidth: 1,
-                        pointRadius: 2
+                        label: 'Risk Level (0-100)',
+                        data: riskData,
+                        backgroundColor: 'rgba(255, 62, 62, 0.2)',
+                        borderColor: '#ff3e3e',
+                        borderWidth: 1.5,
+                        pointBackgroundColor: '#ff3e3e',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#ff3e3e'
                     }]
                 },
-                options: {
-                    scales: { r: { grid: { color: '#111' }, angleLines: { color: '#111' }, ticks: { display: false }, min: 0, max: 100 } },
-                    plugins: { legend: { display: false } }
+                options: { 
+                    scales: { 
+                        r: { 
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }, 
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' }, 
+                            ticks: { display: false, stepSize: 20 }, 
+                            min: 0, 
+                            max: 100,
+                            pointLabels: { color: '#00ff41', font: { family: 'Courier New', size: 10 } }
+                        } 
+                    }, 
+                    plugins: { legend: { display: false } } 
                 }
             });
+            
+            // Scroll to results smoothly
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
