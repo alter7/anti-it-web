@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANTI-IT | Forensic CTO Protocol</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-bg: #f8fafc;
@@ -17,9 +18,9 @@
             --border-color: #e2e8f0;
         }
         
-        body { background: var(--primary-bg); color: var(--text-main); font-family: 'Inter', -apple-system, sans-serif; margin: 0; padding: 0; }
+        body { background: var(--primary-bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
-        /* Navigation Bar */
+        /* Navigation */
         header { background: #fff; border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--text-main); text-decoration: none; letter-spacing: -1px; }
         .logo span { color: var(--accent-red); }
@@ -29,31 +30,38 @@
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Manifesto Hero */
+        /* Hero Manifesto Block */
         .hero-banner { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .hero-banner h2 { margin-top: 0; font-size: 14px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 1px; }
-        .hero-banner p { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
-        .hero-banner a { color: var(--accent-blue); text-decoration: none; font-weight: 600; border-bottom: 1px solid; }
+        .hero-banner h2 { margin-top: 0; font-size: 14px; color: var(--accent-red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .manifesto-list { list-style: none; padding: 0; margin: 0; }
+        .manifesto-list li { margin-bottom: 15px; font-size: 14px; line-height: 1.6; color: var(--text-dim); padding-left: 20px; position: relative; }
+        .manifesto-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent-red); font-weight: bold; }
+        .manifesto-list a { color: var(--text-main); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: 0.2s; }
+        .manifesto-list a:hover { color: var(--accent-blue); }
+        .read-more { display: block; margin-top: 20px; font-size: 13px; color: var(--accent-red); font-weight: 700; text-decoration: none; text-transform: uppercase; }
 
         /* Audit Tool Card */
         .audit-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         .field-label { font-size: 12px; font-weight: 700; color: var(--text-dim); margin-bottom: 8px; display: block; text-transform: uppercase; }
-        input[type="text"] { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 20px; font-size: 15px; box-sizing: border-box; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 20px; font-size: 15px; box-sizing: border-box; font-family: inherit; }
         
-        .file-upload { border: 2px dashed var(--border-color); border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: 0.2s; margin-bottom: 25px; }
+        .file-upload { border: 2px dashed var(--border-color); border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: 0.2s; margin-bottom: 25px; background: #fafafa; }
         .file-upload:hover { border-color: var(--accent-blue); background: #f1f5f9; }
         
-        button.run-btn { width: 100%; background: var(--text-main); color: #fff; border: none; padding: 16px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; }
-        button.run-btn:hover { background: var(--accent-blue); transform: translateY(-1px); }
+        button.run-btn { width: 100%; background: var(--text-main); color: #fff; border: none; padding: 18px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+        button.run-btn:hover { background: var(--accent-blue); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
 
         /* Results Display */
         #results { margin-top: 40px; display: none; }
         .result-section { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        .verdict-header { font-size: 1.5rem; font-weight: 800; border-left: 4px solid var(--accent-red); padding-left: 20px; margin-bottom: 20px; }
-        .risk-item { background: #fef2f2; border: 1px solid #fee2e2; padding: 15px; border-radius: 6px; color: #991b1b; font-weight: 600; }
-        .radar-box { max-width: 500px; margin: 30px auto; }
+        .verdict-header { font-size: 1.4rem; font-weight: 800; border-left: 4px solid var(--accent-red); padding-left: 20px; margin-bottom: 10px; line-height: 1.2; }
+        .risk-item { background: #fef2f2; border: 1px solid #fee2e2; padding: 15px; border-radius: 6px; color: #991b1b; font-weight: 600; font-size: 14px; }
+        .radar-box { max-width: 500px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
         
-        #log { font-family: monospace; font-size: 12px; color: var(--text-dim); margin-top: 20px; display: none; padding: 15px; background: #f1f5f9; border-radius: 6px; }
+        .data-list { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+        .data-list li { margin-bottom: 10px; }
+
+        #log { font-family: monospace; font-size: 12px; color: var(--text-dim); margin-top: 20px; display: none; padding: 15px; background: #f1f5f9; border-radius: 6px; border-left: 3px solid var(--accent-blue); }
     </style>
 </head>
 <body>
@@ -72,12 +80,21 @@
 <div class="container">
     <div class="hero-banner">
         <h2>Industry Disruption Protocol</h2>
-        <p>
-            McKinsey & Oxford report that IT projects overrun budgets by <strong>45% on average</strong>. 
-            Poor software quality costs the economy <strong>$2.41 trillion</strong> annually. 
-            We are here to stop the padding.
-        </p>
-        <a href="manifesto.html">Read the Manifesto →</a>
+        <ul class="manifesto-list">
+            <li>
+                <a href="manifesto.html#source-mckinsey">McKinsey & Oxford:</a> 
+                IT projects overrun budgets by <strong>45% on average</strong>. 17% become "black swans" with <strong>200%+ overruns</strong>.
+            </li>
+            <li>
+                <a href="manifesto.html#source-cisq">CISQ Report:</a> 
+                Poor software quality and technical debt cost the economy <strong>$2.41 trillion</strong> annually.
+            </li>
+            <li>
+                <a href="manifesto.html#source-global-waste">Global IT Waste:</a> 
+                Approximately <strong>$500 billion</strong> is lost every year due to failed projects and over-engineered padding.
+            </li>
+        </ul>
+        <a href="manifesto.html" class="read-more">Read the Full Manifesto →</a>
     </div>
 
     <div class="audit-card">
@@ -89,12 +106,12 @@
 
         <label class="field-label">3. Upload Vendor Proposal</label>
         <div class="file-upload" onclick="document.getElementById('pdfFile').click()">
-            <span id="proxy-label">Click to upload PDF, Word, Excel or Screenshot</span>
+            <span id="proxy-label" style="color: var(--text-dim); font-weight: 500;">Click to upload PDF, Word, Excel or Screenshot</span>
             <input type="file" id="pdfFile" style="display:none" onchange="maskFileName()">
         </div>
-        <div id="status-display" style="font-size: 12px; text-align: center; margin-top: -15px; margin-bottom: 20px; color: var(--text-dim);"></div>
+        <div id="status-display" style="font-size: 12px; text-align: center; margin-top: -15px; margin-bottom: 20px; font-weight: 600;"></div>
 
-        <button class="run-btn" onclick="executeProtocol()">Analyze Estimate</button>
+        <button class="run-btn" onclick="executeProtocol()">Analyze Estimate (Free Beta)</button>
         
         <div id="log"></div>
     </div>
@@ -114,17 +131,17 @@
 
         <div class="result-section">
             <div class="field-label">Line-by-Line Financial Audit</div>
-            <ul id="line-audit" style="font-size: 14px; line-height: 1.8; color: var(--text-dim);"></ul>
+            <ul id="line-audit" class="data-list"></ul>
         </div>
 
         <div class="result-section">
             <div class="field-label">Ideal Contractor Profile</div>
-            <div id="ideal-vendor" style="font-size: 14px; color: var(--text-main);"></div>
+            <div id="ideal-vendor" style="font-size: 14px; color: var(--text-main); line-height: 1.6; padding: 10px; background: #f8fafc; border-radius: 6px;"></div>
         </div>
 
         <div class="result-section">
-            <div class="field-label">Negotiation Script</div>
-            <ul id="neg-script" style="font-size: 14px; color: var(--accent-blue); font-weight: 500;"></ul>
+            <div class="field-label">Negotiation Arsenal (Questions for Vendor)</div>
+            <ul id="neg-script" class="data-list" style="color: var(--accent-blue); font-weight: 500;"></ul>
         </div>
     </div>
 </div>
@@ -135,7 +152,7 @@
         const display = document.getElementById('status-display');
         if (input.files[0]) {
             const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
-            display.innerText = `Object Loaded: SRC_FILE_${hex}.DATA`;
+            display.innerText = `[SECURE_STREAM_LOADED: OBJ_${hex}.DATA]`;
             display.style.color = "var(--accent-green)";
         }
     }
@@ -143,12 +160,12 @@
     async function executeProtocol() {
         const file = document.getElementById('pdfFile').files[0];
         const context = document.getElementById('context').value;
-        const location = document.getElementById('location').value || "Global";
-        if(!file) return alert("Please upload a file.");
+        const location = document.getElementById('location').value || "Global Market";
+        if(!file) return alert("System Error: No source data detected. Upload file.");
 
         const log = document.getElementById('log');
         log.style.display = "block";
-        log.innerText = "> Uplink active. Analyzing data patterns...";
+        log.innerText = "> Uplink established. Running heuristic analysis across 2026 benchmarks...";
 
         const formData = new FormData();
         formData.append('file', file);
@@ -162,35 +179,60 @@
             });
             const data = await res.json();
             log.style.display = "none";
-            renderData(data.audit);
+            if (data.status === "success") {
+                renderData(data.audit);
+            } else {
+                log.innerText = "Error: Backend rejection.";
+            }
         } catch (e) {
-            log.innerText = "Error: Protocol uplink failure.";
+            log.innerText = "Error: Protocol uplink failure. Check server status.";
         }
     }
 
     let radarInstance = null;
     function renderData(audit) {
         document.getElementById('results').style.display = "block";
-        document.getElementById('exec-verdict').innerText = audit.executive_verdict;
-        document.getElementById('red-flag').innerText = audit.top_red_flag;
-        document.getElementById('line-audit').innerHTML = audit.line_by_line_audit.map(i => `<li>${i}</li>`).join('');
-        document.getElementById('ideal-vendor').innerText = audit.ideal_contractor;
-        document.getElementById('neg-script').innerHTML = audit.negotiation_script.map(i => `<li>${i}</li>`).join('');
+        
+        document.getElementById('exec-verdict').innerText = audit.executive_verdict || "Analysis Complete.";
+        document.getElementById('red-flag').innerText = audit.top_red_flag || "No immediate fatal flaws detected.";
+        
+        if (audit.line_by_line_audit) {
+            document.getElementById('line-audit').innerHTML = audit.line_by_line_audit.map(i => `<li>${i}</li>`).join('');
+        }
+        
+        document.getElementById('ideal-vendor').innerText = audit.ideal_contractor || "Consulting requirements not specified.";
+        
+        if (audit.negotiation_script) {
+            document.getElementById('neg-script').innerHTML = audit.negotiation_script.map(i => `<li>${i}</li>`).join('');
+        }
 
         const ctx = document.getElementById('radarChart').getContext('2d');
         if (radarInstance) radarInstance.destroy();
         radarInstance = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Architecture', 'Price', 'Maintenance', 'Security', 'Vendor Lock'],
+                labels: ['Architecture', 'Pricing', 'Maintenance', 'Security', 'Vendor Lock'],
                 datasets: [{
-                    data: audit.risk_radar || [0,0,0,0,0],
+                    label: 'Risk Index',
+                    data: audit.risk_radar || [20, 20, 20, 20, 20],
                     backgroundColor: 'rgba(37, 99, 235, 0.1)',
                     borderColor: '#2563eb',
-                    borderWidth: 2
+                    borderWidth: 2,
+                    pointBackgroundColor: '#2563eb'
                 }]
             },
-            options: { scales: { r: { ticks: { display: false }, min: 0, max: 100 } }, plugins: { legend: { display: false } } }
+            options: { 
+                scales: { 
+                    r: { 
+                        ticks: { display: false }, 
+                        min: 0, 
+                        max: 100,
+                        grid: { color: '#e2e8f0' },
+                        angleLines: { color: '#e2e8f0' }
+                    } 
+                }, 
+                plugins: { legend: { display: false } } 
+            }
         });
         window.scrollTo({ top: document.getElementById('results').offsetTop - 100, behavior: 'smooth' });
     }
