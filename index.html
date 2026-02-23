@@ -6,83 +6,86 @@
     <title>ANTI-IT | Synthetic CTO Protocol</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root { --main-color: #00ff41; --bg-color: #050505; }
+        :root { --main-color: #00ff41; --bg-color: #050505; --dim-color: #003300; }
         body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 800px; width: 100%; box-shadow: 0 0 20px rgba(0, 255, 65, 0.1); }
-        h1 { font-size: 1.5rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; }
-        .input-group { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
+        .terminal { border: 1px solid var(--main-color); padding: 30px; max-width: 850px; width: 100%; box-shadow: 0 0 25px rgba(0, 255, 65, 0.15); background: #000; }
+        h1 { font-size: 1.4rem; text-align: center; border-bottom: 1px solid var(--main-color); padding-bottom: 15px; letter-spacing: 2px; }
+        .input-group { margin: 25px 0; display: flex; flex-direction: column; gap: 12px; }
         
-        /* Скрываем стандартный инпут и делаем свой кастомный */
+        /* Masking the native file input to avoid local language traces */
         input[type="file"] { display: none; }
-        .custom-file-upload { border: 1px solid var(--main-color); display: inline-block; padding: 12px; cursor: pointer; text-align: center; transition: 0.3s; }
-        .custom-file-upload:hover { background: rgba(0, 255, 65, 0.1); }
+        .file-proxy { border: 1px dashed var(--main-color); padding: 15px; text-align: center; cursor: pointer; transition: 0.2s; background: rgba(0,255,0,0.02); }
+        .file-proxy:hover { background: rgba(0,255,0,0.08); }
         
-        input[type="text"], button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 12px; font-family: inherit; font-size: 14px; outline: none; }
-        button { cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; }
-        button:hover { background: var(--main-color); color: #000; }
+        input[type="text"], button { background: transparent; border: 1px solid var(--main-color); color: var(--main-color); padding: 14px; font-family: inherit; font-size: 14px; outline: none; }
+        button { cursor: pointer; transition: 0.3s; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+        button:hover { background: var(--main-color); color: #000; box-shadow: 0 0 15px var(--main-color); }
         
-        #log { font-size: 12px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; line-height: 1.4; }
-        .progress-container { height: 2px; width: 100%; background: #111; margin: 10px 0; display: none; }
+        #log { font-size: 11px; height: 160px; overflow-y: hidden; margin: 20px 0; display: none; border-left: 2px solid var(--dim-color); padding-left: 15px; }
+        .progress-container { height: 1px; width: 100%; background: var(--dim-color); margin: 10px 0; display: none; }
         #progress { height: 100%; background: var(--main-color); width: 0%; transition: width 0.4s; }
-        #results { display: none; border-top: 1px double var(--main-color); margin-top: 30px; padding-top: 20px; }
-        .radar-box { max-width: 450px; margin: 0 auto; }
-        #audit-text { background: #000; border: 1px solid #1a1a1a; padding: 15px; color: #aaa; overflow-x: auto; white-space: pre-wrap; font-size: 12px; margin-top: 20px; line-height: 1.5; }
-        #file-name-display { font-size: 10px; opacity: 0.6; text-align: center; }
+        
+        #results { display: none; border-top: 1px double var(--main-color); margin-top: 30px; padding-top: 25px; }
+        .radar-box { max-width: 400px; margin: 0 auto; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 10px; }
+        #audit-text { background: #020202; border: 1px solid #111; padding: 20px; color: #888; white-space: pre-wrap; font-size: 12px; margin-top: 25px; line-height: 1.6; letter-spacing: 0.5px; }
+        #status-display { font-size: 10px; text-align: center; color: var(--dim-color); text-transform: uppercase; }
     </style>
 </head>
 <body>
     <div class="terminal">
         <h1>[ ANTI-IT SYSTEM CORE v4.2 ]</h1>
-        <p style="font-size: 13px; text-align: center; opacity: 0.7;">Proprietary Forensic Audit Protocol for IT Estimates</p>
+        <p style="font-size: 11px; text-align: center; opacity: 0.6; margin-top: -10px;">AUTHORIZED ACCESS ONLY | DEEP FORENSIC MODE</p>
 
         <div class="input-group">
-            <label>> ENTER BUSINESS CONTEXT:</label>
-            <input type="text" id="context" placeholder="e.g., Simple booking site for local salon">
+            <label style="font-size: 12px;">> TARGET_CONTEXT:</label>
+            <input type="text" id="context" placeholder="e.g. ENTER_BUSINESS_DOMAIN_HERE">
             
-            <label>> UPLOAD PROPOSAL DATA (PDF):</label>
-            <label for="pdfFile" class="custom-file-upload" id="file-label">
-                SELECT DOCUMENT (PDF)
-            </label>
-            <input type="file" id="pdfFile" accept=".pdf" onchange="updateFileName()">
-            <div id="file-name-display">NO_FILE_ATTACHED</div>
+            <label style="font-size: 12px;">> SOURCE_LOADER:</label>
+            <label for="pdfFile" class="file-proxy" id="proxy-label">ATTACH_DATA_SOURCE (PDF/DOCX/XLSX/IMG)</label>
+            <input type="file" id="pdfFile" accept=".pdf,.docx,.xlsx,.xls,.csv,.txt,.png,.jpg,.jpeg" onchange="maskFileName()">
+            <div id="status-display">WAITING_FOR_INPUT...</div>
 
-            <button onclick="runProtocol()">INITIATE DEEP SCAN</button>
+            <button onclick="executeProtocol()">RUN_SYNTHETIC_AUDIT</button>
         </div>
 
         <div id="progress-container" class="progress-container"><div id="progress"></div></div>
         <div id="log"></div>
 
         <div id="results">
-            <h2 style="text-align: center;">AUDIT COMPLETE. STATUS: <span id="verdict" style="color: #ff3e3e;">[CALCULATED]</span></h2>
+            <h3 style="text-align: center; font-size: 14px;">VERDICT_REPORT: <span id="verdict" style="color: #ff3e3e;">[CALCULATED]</span></h3>
             <div class="radar-box"><canvas id="radarChart"></canvas></div>
             <div id="audit-text"></div>
         </div>
     </div>
 
     <script>
-        const logs = [
-            "Initializing Semantic Objective Matching...",
-            "Stack Integrity Audit: IN PROGRESS...",
-            "Redundancy & Over-engineering Check: SCANNING...",
-            "Market Rate Benchmarking (Global Index 2026)...",
-            "Hidden Maintenance Complexity: CALCULATING...",
-            "Security & SLA Trap Detection: MONITORING...",
-            "Labor Cost Sanity Check: CRITICAL ANALYSIS...",
-            "Infrastructure Scalability Overhead: TESTING...",
-            "Vendor Lock-in Risk Assessment: HIGH PRIORITY...",
-            "Finalizing Synthetic CTO Consensus..."
+        const scanSteps = [
+            "HEURISTIC_ENGINE: INITIALIZING...",
+            "OBJECTIVE_MATCHING: PHASE_01_ACTIVE",
+            "STRUCTURAL_ANALYSIS: SCANNING_FOR_OVERHEAD",
+            "GLOBAL_RATE_INDEX: CROSS_REFERENCING...",
+            "MAINTENANCE_LOOP_DETECTION: RUNNING",
+            "SLA_TRAP_SCAN: SEARCHING_FOR_PATTERNS",
+            "LABOR_UNIT_VALIDATION: PROCESSING...",
+            "INFRASTRUCTURE_AUDIT: PHASE_02_ACTIVE",
+            "VENDOR_LOCK_IN_RISK: EVALUATING",
+            "SYNTHETIC_CONSENSUS: FINALIZING_VERDICT"
         ];
 
-        function updateFileName() {
+        function maskFileName() {
             const input = document.getElementById('pdfFile');
-            const display = document.getElementById('file-name-display');
-            display.innerText = input.files[0] ? `FILE_READY: ${input.files[0].name.toUpperCase()}` : "NO_FILE_ATTACHED";
+            const display = document.getElementById('status-display');
+            if (input.files[0]) {
+                const randomHex = Math.random().toString(16).substring(2, 8).toUpperCase();
+                display.innerText = `READY: SRC_DATA_STREAM_${randomHex}.RAW`;
+                display.style.color = "#00ff41";
+            }
         }
 
-        async function runProtocol() {
+        async function executeProtocol() {
             const file = document.getElementById('pdfFile').files[0];
             const context = document.getElementById('context').value;
-            if(!file) return alert("ERROR: NO_FILE_DETECTED");
+            if(!file) return;
 
             const logBox = document.getElementById('log');
             const pBar = document.getElementById('progress');
@@ -91,12 +94,12 @@
             document.getElementById('progress-container').style.display = "block";
             document.getElementById('results').style.display = "none";
 
-            for(let i=0; i<logs.length; i++) {
+            for(let i=0; i<scanSteps.length; i++) {
                 const line = document.createElement('div');
-                line.innerText = `> ${logs[i]}`;
+                line.innerText = `[SYS] ${scanSteps[i]}`;
                 logBox.appendChild(line);
                 pBar.style.width = ((i+1) * 10) + "%";
-                await new Promise(r => setTimeout(r, 1200)); 
+                await new Promise(r => setTimeout(r, 1100)); 
             }
 
             const formData = new FormData();
@@ -109,13 +112,16 @@
                     body: formData
                 });
                 const data = await res.json();
-                renderResults(data);
+                displayResults(data);
             } catch (e) {
-                alert("CRITICAL ERROR: CONNECTION_LOST_UPLINK_OFFLINE");
+                const errorLine = document.createElement('div');
+                errorLine.innerText = "[!] UPLINK_CRITICAL_ERROR";
+                errorLine.style.color = "red";
+                logBox.appendChild(errorLine);
             }
         }
 
-        function renderResults(data) {
+        function displayResults(data) {
             document.getElementById('results').style.display = "block";
             document.getElementById('audit-text').innerText = data.audit;
             
@@ -125,16 +131,15 @@
                 data: {
                     labels: ['Architecture', 'Tech Stack', 'Pricing', 'Maintenance', 'Security'],
                     datasets: [{
-                        label: 'Risk Profile',
-                        data: [85, 75, 90, 80, 65],
-                        fill: true,
-                        backgroundColor: 'rgba(0, 255, 65, 0.2)',
+                        data: [85, 75, 95, 80, 70],
+                        backgroundColor: 'rgba(0, 255, 65, 0.15)',
                         borderColor: '#00ff41',
-                        pointBackgroundColor: '#00ff41'
+                        borderWidth: 1,
+                        pointRadius: 2
                     }]
                 },
                 options: {
-                    scales: { r: { beginAtZero: true, grid: { color: '#333' }, angleLines: { color: '#333' }, ticks: { display: false } } },
+                    scales: { r: { grid: { color: '#111' }, angleLines: { color: '#111' }, ticks: { display: false }, min: 0, max: 100 } },
                     plugins: { legend: { display: false } }
                 }
             });
