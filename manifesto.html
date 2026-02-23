@@ -20,22 +20,23 @@
         h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -3px; margin-bottom: 40px; text-transform: uppercase; }
         h2 { font-size: 1.8rem; font-weight: 900; margin-top: 60px; color: #000; border-bottom: 4px solid var(--red); display: inline-block; padding-bottom: 5px; margin-bottom: 20px;}
         
-        .section-lead { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; color: var(--text); }
         p { font-size: 1.1rem; margin-bottom: 25px; color: #334155; }
         
-        /* DATA SOURCE CARDS */
-        .source-box { background: #f8fafc; border: 1px solid var(--border); padding: 30px; margin: 40px 0; position: relative; }
+        .source-box { background: #f8fafc; border: 1px solid var(--border); padding: 30px; margin: 40px 0; }
         .source-box h4 { margin: 0 0 10px; color: var(--red); font-size: 12px; text-transform: uppercase; }
         .source-link { font-size: 11px; color: var(--dim); text-decoration: underline; display: block; margin-top: 15px; }
 
-        /* THE ALLIANCE BLOCK */
         .alliance { background: #eff6ff; border-left: 8px solid var(--blue); padding: 40px; margin: 60px 0; }
         .alliance h3 { margin-top: 0; color: var(--blue); font-size: 1.5rem; }
 
-        /* FINAL MISSION BOX */
-        .mission-box { background: #000; color: #fff; padding: 60px; text-align: center; margin-top: 80px; }
-        .free-tag { background: var(--red); color: #fff; padding: 5px 15px; font-weight: 900; text-transform: uppercase; font-size: 12px; margin-bottom: 20px; display: inline-block; }
-        .mission-box h2 { border: none; color: #fff; font-size: 2.5rem; margin-bottom: 20px; }
+        /* FIXED MISSION BOX */
+        .mission-box { background: #000; color: #fff; padding: 80px 60px; text-align: center; margin-top: 80px; position: relative; }
+        .mission-box p { color: #ffffff; opacity: 0.9; } /* High contrast */
+        .free-tag { background: var(--red); color: #fff; padding: 8px 15px; font-weight: 900; text-transform: uppercase; font-size: 12px; margin-bottom: 30px; display: inline-block; vertical-align: middle; }
+        .mission-box h2 { border: none; color: #fff; font-size: 2.8rem; margin: 0 0 30px 20px; display: inline-block; vertical-align: middle; }
+        .mission-box .goal-text { font-weight: 700; font-size: 1.2rem; margin-bottom: 40px; color: #fff; }
+        
+        .footer-note { font-size: 0.8rem; color: var(--dim); border-top: 1px solid var(--border); margin-top: 100px; padding: 40px 0; }
     </style>
 </head>
 <body>
@@ -43,14 +44,10 @@
 <header class="universal-header">
     <a href="index.html" class="logo">ANTI<span>-IT</span></a>
     <nav class="main-nav">
-        <a href="index.html" class="nav-link">DO AUDIT</a>
-        <span class="divider">|</span>
-        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
-        <span class="divider">|</span>
-        <a href="manifesto.html" class="nav-link active">MANIFESTO</a>
-        <span class="divider">|</span>
-        <a href="cases.html" class="nav-link">CASE LAW</a>
-        <span class="divider">|</span>
+        <a href="index.html" class="nav-link">DO AUDIT</a><span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a><span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link active">MANIFESTO</a><span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a><span class="divider">|</span>
         <a href="scandals.html" class="nav-link">SCANDALS</a>
     </nav>
 </header>
@@ -60,49 +57,49 @@
     
     <section>
         <h2>01. WHO WE ARE</h2>
-        <p class="section-lead">We are the Capital Owners. The Founders. The Investors.</p>
-        <p>We are the ones who finance the digital world. For too long, we have been treated not as partners, but as "atmospheres" to be exploited. We are tired of the arrogance of vendors who believe that technical complexity grants them the right to financial opacity.</p>
+        <p>We are the Capital Owners. We are the ones who finance the digital world, yet we have been treated as mere "wallets" to be emptied. We refuse to accept that technical complexity is a license for financial opacity.</p>
     </section>
 
     <section>
         <h2>02. THE SYSTEMIC FAILURE</h2>
-        <p>The status quo is a parasite. We suffer from "Black Swan" projects that drain our reserves and paralyze our growth. We are tired of the "Linguistic Wall"—a barrier of jargon designed to hide incompetence and over-engineering.</p>
+        <p>The status quo is a parasite. We suffer from <b>catastrophic "Black Swan" projects</b> that drain corporate reserves. The "Linguistic Wall" of jargon is used as a shield to hide incompetence and over-engineering.</p>
         
         <div class="source-box" id="source-mckinsey">
             <h4>EVIDENCE: THE BUDGET GAP</h4>
-            <p><b>45% of IT projects exceed their initial budget</b> while delivering 56% less value than promised. This is not a mistake; it is a business model [cite: 2026-02-23].</p>
+            <p>45% of IT projects exceed their initial budget while delivering significantly less value than promised. This is a systemic industry flaw [cite: 2026-02-23].</p>
             <a href="https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value" rel="nofollow" class="source-link">Source: McKinsey & Oxford University</a>
         </div>
     </section>
 
     <section>
         <h2>03. THE ADVERSARY</h2>
-        <p>Our enemies are the <b>Predatory Architects</b>. Those who propose a "Crane" for a "Mover's" task. Those who deliberately build Technical Debt to ensure a lifetime of maintenance fees. They are the reason for the $2.41 Trillion economic tax on poor software.</p>
+        <p>Our enemy is Predatory Architecture. Vendors who propose a "Crane" for a "Mover's" task. This practice has become an <b>astronomical tax on every global economy</b>, stifling innovation and draining capital that belongs elsewhere.</p>
         
         <div class="source-box" id="source-cisq" style="border-left-color: var(--blue);">
-            <h4>EVIDENCE: THE TRACE OF WASTE</h4>
-            <p>The cost of poor software quality has reached <b>$2.41 Trillion annually</b> in the U.S. alone, primarily driven by unmanaged technical debt.</p>
+            <h4>EVIDENCE: THE COST OF POOR CODE</h4>
+            <p>In the U.S. alone, poor software quality costs $2.41 trillion annually. Scaling this to global markets reveals a multi-trillion dollar crisis.</p>
             <a href="https://www.it-cisq.org/technical-reports/" rel="nofollow" class="source-link">Source: CISQ</a>
         </div>
     </section>
 
     <section class="alliance">
         <h3>04. THE ELITE ALLIANCE</h3>
-        <p>We do not stand against all engineers. We stand with the <b>Honest Professionals</b>—the elite who value structural integrity and economic rationality. Your reputation is being tarnished by the charlatans. We invite you to cross the line and join the audit movement.</p>
-        <p>Let’s establish a new "Honor Code" for development: Zero-tolerance for padding and full transparency in estimation.</p>
+        <p>We stand with the Honest Professionals. To the engineers who value integrity: your reputation is being destroyed by charlatans. Join us in setting new standards for Architectural Rationality.</p>
     </section>
 
     <div class="mission-box">
-        <span class="free-tag">Planetary Mission: Phase 1 (FREE)</span>
-        <h2>CLEAN THE INDUSTRY</h2>
+        <div style="margin-bottom: 20px;">
+            <span class="free-tag">PLANETARY MISSION: PHASE 1 (FREE)</span>
+            <h2>CLEAN THE INDUSTRY</h2>
+        </div>
         <p>We are democratizing the truth. Our core Forensic Protocol is currently <b>FREE</b> for all capital owners. We refuse to let the cost of an audit be another barrier to justice.</p>
-        <p><b>OUR GOAL:</b> To identify every scammer, to expose every bloated estimate, and to restore the integrity of the digital economy.</p>
-        <a href="index.html" style="color:var(--red); font-weight:900; text-decoration:none; font-size:1.5rem;">[ START YOUR FREE AUDIT ]</a>
+        <p class="goal-text">OUR GOAL: To identify every scammer, to expose every bloated estimate, and to restore the integrity of the digital economy.</p>
+        <a href="index.html" style="color:var(--red); font-weight:900; text-decoration:none; font-size:1.8rem; border: 2px solid var(--red); padding: 15px 30px;">[ START YOUR FREE AUDIT ]</a>
     </div>
 
-    <p style="text-align: center; margin-top: 50px; color: var(--dim); font-size: 0.9rem;">
-        Need deep-dive forensic consulting? Reach out at: <a href="mailto:audit@anti-it.com" style="color:var(--text);">audit@anti-it.com</a>
-    </p>
+    <div class="footer-note">
+        * <b>Black Swan Project:</b> A high-impact, unpredictable event in IT project management where costs exceed the budget by more than 200%. Every sixth project falls into this category according to Oxford studies [cite: 2026-02-23].
+    </div>
 </div>
 
 </body>
