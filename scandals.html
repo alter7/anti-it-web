@@ -7,15 +7,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #000000; --text: #ffffff; --red: #ff0000; --dim: #94a3b8; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        
+        /* UNIVERSAL NAVIGATION */
         .universal-header { background: #111; border-bottom: 2px solid var(--red); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; text-decoration: none; color: #fff; font-size: 1.5rem; }
-        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; padding: 5px 0; border-bottom: 2px solid transparent; }
-        .nav-link.active { color: #ff0000; font-weight: 900; border-bottom: 2px solid #ff0000; }
-        .divider { margin: 0 15px; color: #333; }
+        .logo { font-weight: 900; text-decoration: none; color: #fff; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .main-nav { display: flex; align-items: center; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 15px; color: #333; font-weight: 300; user-select: none; }
+
         .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-        .scandal-card { border-bottom: 1px solid #333; padding: 40px 0; }
-        .tag { color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-size: 4rem; font-weight: 900; letter-spacing: -4px; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+        .intro { font-size: 1.2rem; color: var(--dim); margin-bottom: 60px; }
+
+        .scandal-card { border-bottom: 1px solid #333; padding: 45px 0; }
+        .tag { color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        h3 { font-size: 26px; margin: 10px 0; font-weight: 900; letter-spacing: -1px; }
+        p { color: #ccc; font-size: 15px; margin-bottom: 20px; }
+        .source-link { font-size: 11px; color: var(--red); font-weight: 700; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.2s; }
+        .source-link:hover { border-bottom: 1px solid var(--red); }
+
+        /* THE HOOK (ACTION BOX) */
+        .the-hook { background: #111; border: 4px solid var(--red); padding: 60px 40px; margin: 100px 0; text-align: center; }
+        .hook-title { font-size: 2.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 20px; }
+        .hook-desc { color: #ccc; font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-action { display: inline-block; background: var(--red); color: #fff; text-decoration: none; padding: 25px 50px; font-size: 20px; font-weight: 900; text-transform: uppercase; transition: 0.2s; }
+        .btn-action:hover { background: #fff; color: #000; transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -23,29 +43,66 @@
 <header class="universal-header">
     <a href="index.html" class="logo">ANTI<span>-IT</span></a>
     <nav class="main-nav">
-        <a href="index.html" class="nav-link">DO AUDIT</a><span class="divider">|</span>
-        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a><span class="divider">|</span>
-        <a href="manifesto.html" class="nav-link">MANIFESTO</a><span class="divider">|</span>
-        <a href="cases.html" class="nav-link">CASE LAW</a><span class="divider">|</span>
+        <a href="index.html" class="nav-link">DO AUDIT</a>
+        <span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
+        <span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a>
+        <span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a>
+        <span class="divider">|</span>
         <a href="scandals.html" class="nav-link active">SCANDALS</a>
     </nav>
 </header>
 
 <div class="container">
     <h1>SCANDALS</h1>
+    <p class="intro">Exposing the technical negligence, corporate greed, and incompetence that drains capital from real businesses.</p>
+
     <div class="scandal-card">
         <span class="tag">Systemic Failure / 2026 Ongoing</span>
         <h3>Delta vs. CrowdStrike: The $500M Negligence</h3>
-        <p>Massive lawsuit following a botched software update.</p>
-        <a href="https://www.itpro.com/business/crowdstrike-shareholder-lawsuit-dismissed-delta-lawsuit-ongoing" rel="nofollow" style="color:red; font-size:10px;">[Source]</a>
+        <p>Delta Air Lines has filed a multi-million dollar lawsuit against CrowdStrike following a faulty software update that crippled 8.5 million computers globally, causing thousands of flight cancellations and massive revenue loss.</p>
+        <a href="https://www.itpro.com/business/crowdstrike-shareholder-lawsuit-dismissed-delta-lawsuit-ongoing" rel="nofollow" class="source-link">> VIEW_SOURCE: ITPRO</a>
     </div>
-    <div class="scandal-card">
-        <span class="tag">Hardware Fraud / 2026</span>
-        <h3>Intel "Raptor Lake" Class Action</h3>
-        <p>Selling defective CPUs while refusing a recall.</p>
-        <a href="https://www.kaplangore.com/intel-13th-and-14th-generation-processor-investigation-inquiry-form" rel="nofollow" style="color:red; font-size:10px;">[Source]</a>
-    </div>
-</div>
 
+    <div class="scandal-card">
+        <span class="tag">Hardware Fraud / 2025-2026</span>
+        <h3>Intel "Raptor Lake" Instability Scandal</h3>
+        <p>Intel faces massive class-action lawsuits for selling 13th and 14th Gen processors with known oxidation and instability defects while intentionally delaying a recall, leaving enterprise clients with dying infrastructure.</p>
+        <a href="https://www.kaplangore.com/intel-13th-and-14th-generation-processor-investigation-inquiry-form" rel="nofollow" class="source-link">> VIEW_SOURCE: KAPLAN GORE</a>
+    </div>
+
+    <div class="scandal-card">
+        <span class="tag">ERP Disaster / Sept 2025</span>
+        <h3>Zimmer Biomet vs. Deloitte: $172M Failure</h3>
+        <p>A medical device giant sued its integrator for a botched SAP S/4HANA implementation that paralyzed the supply chain, proving that even the biggest consulting firms often fail to deliver basic operational stability.</p>
+        <a href="https://www.cio.com/article/4109186/7-major-it-disasters-of-2025.html" rel="nofollow" class="source-link">> VIEW_SOURCE: CIO.COM</a>
+    </div>
+
+    <div class="scandal-card">
+        <span class="tag">Security Negligence / July 2025</span>
+        <h3>Clorox vs. Cognizant: The Cyber-Negligence Claim</h3>
+        <p>Following a devastating cyberattack that cost Clorox $380M, the company targeted its IT provider for failing to implement fundamental security protocols, leading to a total collapse of consumer confidence.</p>
+        <a href="https://www.cio.com/article/4109186/7-major-it-disasters-of-2025.html" rel="nofollow" class="source-link">> VIEW_SOURCE: CIO.COM</a>
+    </div>
+
+    <div class="scandal-card">
+        <span class="tag">Data Exploitation / June 2024</span>
+        <h3>Adobe's Terms of Service Mutiny</h3>
+        <p>Adobe sparked industry-wide outrage after changing its terms to allow the company to use creator content for AI training without compensation—a prime example of "Terms of Service" traps used to exploit client intellectual property.</p>
+        <a href="https://www.trustlab.com/post/lessons-from-adobes-updated-terms-of-use-controversy" rel="nofollow" class="source-link">> VIEW_SOURCE: TRUSTLAB</a>
+    </div>
+
+    <div class="the-hook">
+        <div class="hook-title">DON'T BE THE NEXT HEADLINE.</div>
+        <div class="hook-desc">
+            Technical negligence and predatory estimates aren't just mistakes—they are financial traps. 
+            Audit your IT proposal before you become a victim in our next update.
+        </div>
+        <a href="index.html" class="btn-action">RUN FORENSIC AUDIT NOW</a>
+    </div>
+
+</div>
 </body>
 </html>
