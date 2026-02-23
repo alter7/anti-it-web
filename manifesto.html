@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTI-IT | The Manifesto</title>
+    <title>ANTI-IT | The Software Client Manifesto</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #ffffff; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #e2e8f0; }
         body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
         
-        /* UNIVERSAL NAVIGATION */
         .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
         .logo span { color: #b91c1c; }
@@ -18,23 +17,25 @@
         .divider { margin: 0 15px; color: #cbd5e1; }
 
         .content { max-width: 850px; margin: 80px auto; padding: 0 40px; }
-        h1 { font-size: 4.5rem; font-weight: 900; line-height: 0.9; letter-spacing: -4px; margin-bottom: 40px; text-transform: uppercase; }
-        .lead { font-size: 1.6rem; color: var(--dim); margin-bottom: 80px; font-weight: 500; border-left: 8px solid var(--red); padding-left: 30px; }
+        h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -3px; margin-bottom: 40px; text-transform: uppercase; }
+        h2 { font-size: 1.8rem; font-weight: 900; margin-top: 60px; color: #000; border-bottom: 4px solid var(--red); display: inline-block; padding-bottom: 5px; margin-bottom: 20px;}
         
-        h2 { font-size: 2rem; font-weight: 900; margin-top: 80px; letter-spacing: -1px; }
-        p { font-size: 1.1rem; margin-bottom: 25px; }
-
-        /* DATA BLOCKS */
-        .data-grid { margin: 60px 0; }
-        .source-card { background: #f8fafc; border: 1px solid var(--border); padding: 40px; margin-bottom: 30px; position: relative; }
-        .source-card h4 { margin: 0 0 15px; color: var(--red); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
-        .source-card .big-num { font-size: 3rem; font-weight: 900; display: block; margin-bottom: 10px; color: var(--text); }
-        .source-link { font-size: 11px; font-weight: 700; color: var(--dim); text-transform: uppercase; text-decoration: underline; margin-top: 20px; display: block; }
-
-        .call-to-action { background: #000; color: #fff; padding: 60px; margin: 80px 0; border-radius: 4px; }
-        .call-to-action h3 { color: var(--red); font-size: 2rem; margin-top: 0; }
+        .section-lead { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; color: var(--text); }
+        p { font-size: 1.1rem; margin-bottom: 25px; color: #334155; }
         
-        .footer-note { font-size: 0.9rem; color: var(--dim); text-align: center; margin-top: 100px; padding-bottom: 50px; }
+        /* DATA SOURCE CARDS */
+        .source-box { background: #f8fafc; border: 1px solid var(--border); padding: 30px; margin: 40px 0; position: relative; }
+        .source-box h4 { margin: 0 0 10px; color: var(--red); font-size: 12px; text-transform: uppercase; }
+        .source-link { font-size: 11px; color: var(--dim); text-decoration: underline; display: block; margin-top: 15px; }
+
+        /* THE ALLIANCE BLOCK */
+        .alliance { background: #eff6ff; border-left: 8px solid var(--blue); padding: 40px; margin: 60px 0; }
+        .alliance h3 { margin-top: 0; color: var(--blue); font-size: 1.5rem; }
+
+        /* FINAL MISSION BOX */
+        .mission-box { background: #000; color: #fff; padding: 60px; text-align: center; margin-top: 80px; }
+        .free-tag { background: var(--red); color: #fff; padding: 5px 15px; font-weight: 900; text-transform: uppercase; font-size: 12px; margin-bottom: 20px; display: inline-block; }
+        .mission-box h2 { border: none; color: #fff; font-size: 2.5rem; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -55,60 +56,53 @@
 </header>
 
 <div class="content">
-    <h1>THE <span style="color:var(--red)">ANTI-IT</span><br>MANIFESTO</h1>
+    <h1>THE <span style="color:var(--red)">ANTI-IT</span> <br>CLIENT MANIFESTO</h1>
     
-    <div class="lead">
-        We are launching a planetary-scale intervention to end the era of "Digital Obscurantism." 
-        The IT industry must be purged of charlatans and brought back to the standards of real economic value.
-    </div>
-
     <section>
-        <h2>01. The Mental Chasm</h2>
-        <p>For decades, the IT sector has operated without the professional accountability found in medicine or civil engineering. Developers have hidden behind a "Wall of Complexity," using jargon to justify <b>Architectural Over-Engineering</b>—calling for a crane where a simple mover would suffice.</p>
-        <p>This is not progress. This is an information asymmetry used as a weapon against capital.</p>
+        <h2>01. WHO WE ARE</h2>
+        <p class="section-lead">We are the Capital Owners. The Founders. The Investors.</p>
+        <p>We are the ones who finance the digital world. For too long, we have been treated not as partners, but as "atmospheres" to be exploited. We are tired of the arrogance of vendors who believe that technical complexity grants them the right to financial opacity.</p>
     </section>
 
-    <div class="data-grid">
-        <div class="source-card" id="source-mckinsey">
-            <h4>Global Failure Benchmark</h4>
-            <span class="big-num">45% OVER BUDGET</span>
-            <p>On average, large IT projects exceed their initial estimates by 45% while delivering 56% less value than predicted.</p>
+    <section>
+        <h2>02. THE SYSTEMIC FAILURE</h2>
+        <p>The status quo is a parasite. We suffer from "Black Swan" projects that drain our reserves and paralyze our growth. We are tired of the "Linguistic Wall"—a barrier of jargon designed to hide incompetence and over-engineering.</p>
+        
+        <div class="source-box" id="source-mckinsey">
+            <h4>EVIDENCE: THE BUDGET GAP</h4>
+            <p><b>45% of IT projects exceed their initial budget</b> while delivering 56% less value than promised. This is not a mistake; it is a business model [cite: 2026-02-23].</p>
             <a href="https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value" rel="nofollow" class="source-link">Source: McKinsey & Oxford University</a>
         </div>
-
-        <div class="source-card" id="source-cisq" style="border-left: 6px solid var(--blue);">
-            <h4>The Economic Tax of Bad Code</h4>
-            <span class="big-num">$2.41 TRILLION LOSS</span>
-            <p>The cost of poor software quality in the U.S. alone has reached $2.41 trillion annually, driven by technical debt and operational failures.</p>
-            <a href="https://www.it-cisq.org/technical-reports/" rel="nofollow" class="source-link">Source: CISQ (Consortium for IT Software Quality)</a>
-        </div>
-
-        <div class="source-card">
-            <h4>Industry Shift 2026</h4>
-            <span class="big-num">OUTCOME OVER TOOLS</span>
-            <p>By 2026, "Outcome-Based Performance" will finally replace traditional labor-hour billing as the primary measure of IT success.</p>
-            <a href="https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html" rel="nofollow" class="source-link">Source: PwC & Industry Strategy Group</a>
-        </div>
-    </div>
-
-    <section>
-        <h2>02. To the Honest Engineers</h2>
-        <p>This manifesto is not an attack on talent; it is a call to arms for the elite. Honest professionals suffer when the market is flooded with "Ghost Developers" and predatory agencies that value billable hours over structural integrity.</p>
-        <p>By defining clear criteria for <b>Labor-Value Ratios</b> and <b>Architectural Rationality</b>, we protect the reputation of the true experts. We invite you to join us in establishing a new code of ethics: zero-tolerance for "padding" and full transparency in estimation.</p>
     </section>
 
-    <div class="call-to-action">
-        <h3>Our Planetary Mission</h3>
-        <p>1. <b>Purge the Industry:</b> Identify and red-flag vendors who use complexity as a shield for greed.<br>
-           2. <b>Establish Standards:</b> Adopt scientific, outcome-based criteria for evaluating IT labor costs.<br>
-           3. <b>Restore Trust:</b> Build a transparent bridge between the Real Sector and the Digital World.</p>
+    <section>
+        <h2>03. THE ADVERSARY</h2>
+        <p>Our enemies are the <b>Predatory Architects</b>. Those who propose a "Crane" for a "Mover's" task. Those who deliberately build Technical Debt to ensure a lifetime of maintenance fees. They are the reason for the $2.41 Trillion economic tax on poor software.</p>
+        
+        <div class="source-box" id="source-cisq" style="border-left-color: var(--blue);">
+            <h4>EVIDENCE: THE TRACE OF WASTE</h4>
+            <p>The cost of poor software quality has reached <b>$2.41 Trillion annually</b> in the U.S. alone, primarily driven by unmanaged technical debt.</p>
+            <a href="https://www.it-cisq.org/technical-reports/" rel="nofollow" class="source-link">Source: CISQ</a>
+        </div>
+    </section>
+
+    <section class="alliance">
+        <h3>04. THE ELITE ALLIANCE</h3>
+        <p>We do not stand against all engineers. We stand with the <b>Honest Professionals</b>—the elite who value structural integrity and economic rationality. Your reputation is being tarnished by the charlatans. We invite you to cross the line and join the audit movement.</p>
+        <p>Let’s establish a new "Honor Code" for development: Zero-tolerance for padding and full transparency in estimation.</p>
+    </section>
+
+    <div class="mission-box">
+        <span class="free-tag">Planetary Mission: Phase 1 (FREE)</span>
+        <h2>CLEAN THE INDUSTRY</h2>
+        <p>We are democratizing the truth. Our core Forensic Protocol is currently <b>FREE</b> for all capital owners. We refuse to let the cost of an audit be another barrier to justice.</p>
+        <p><b>OUR GOAL:</b> To identify every scammer, to expose every bloated estimate, and to restore the integrity of the digital economy.</p>
+        <a href="index.html" style="color:var(--red); font-weight:900; text-decoration:none; font-size:1.5rem;">[ START YOUR FREE AUDIT ]</a>
     </div>
 
-    <p style="text-align: center; font-weight: 900; letter-spacing: 2px;">WE ARE THE AUDITORS. WE ARE THE TRUTH. <br><span style="color:var(--red)">NO MORE SCAMS.</span></p>
-
-    <div class="footer-note">
-        [ Forensic Protocol v4.2 | 2026 Strategy Alignment ]
-    </div>
+    <p style="text-align: center; margin-top: 50px; color: var(--dim); font-size: 0.9rem;">
+        Need deep-dive forensic consulting? Reach out at: <a href="mailto:audit@anti-it.com" style="color:var(--text);">audit@anti-it.com</a>
+    </p>
 </div>
 
 </body>
