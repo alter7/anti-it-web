@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANIFESTO | ANTI-IT Protocol</title>
+    <style>
+        :root { --main-color: #00ff41; --bg-color: #050505; --dim-color: #003300; --alert-color: #ff3e3e; }
+        body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; padding: 20px; line-height: 1.6; }
+        .terminal { border: 1px solid var(--main-color); padding: 40px; max-width: 800px; width: 100%; background: #000; box-shadow: 0 0 25px rgba(0, 255, 65, 0.1); }
+        h1 { font-size: 1.5rem; text-align: center; border-bottom: 1px solid var(--alert-color); padding-bottom: 15px; color: var(--alert-color); text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.2rem; color: #fff; margin-top: 35px; border-left: 3px solid var(--main-color); padding-left: 12px; }
+        p { color: #ccc; font-size: 14px; text-align: justify; margin-bottom: 20px; }
+        .highlight { color: var(--main-color); font-weight: bold; }
+        .source-box { border: 1px dashed var(--dim-color); padding: 25px; margin-top: 45px; background: rgba(0, 255, 65, 0.02); }
+        .source-box h3 { font-size: 12px; color: #888; text-transform: uppercase; margin-top: 0; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .ext-link { color: var(--alert-color); text-decoration: none; font-size: 12px; display: block; margin-bottom: 12px; transition: 0.2s; }
+        .ext-link:hover { color: #fff; text-decoration: underline; }
+        .back-btn { display: inline-block; margin-top: 40px; padding: 14px 28px; border: 1px solid var(--main-color); color: var(--main-color); text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .back-btn:hover { background: var(--main-color); color: #000; }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <h1>[ THE ANTI-IT MANIFESTO ]</h1>
+        
+        <h2>The Information Asymmetry</h2>
+        <p>The global IT services market operates on a fundamental flaw: <span class="highlight">the client rarely understands what they are buying</span>. This asymmetry allows vendors to inflate hours, over-engineer architectures, and lock clients into proprietary ecosystems. The industry thrives on client ignorance.</p>
+        
+        <h2 id="source-mckinsey">The 45% Rule & Black Swans</h2>
+        <p>This is not a conspiracy; it is a documented economic reality. A landmark study of over 5,400 IT projects conducted by <span class="highlight">McKinsey & Company in collaboration with the University of Oxford</span> revealed devastating statistics. On average, large IT projects run 45% over budget and 7% over time. Worse, 17% of these projects turn into "black swans"—catastrophic failures with budget overruns exceeding 200%, threatening the financial stability of the companies that commissioned them.</p>
+
+        <h2 id="source-cisq">The $2.41 Trillion Technical Debt</h2>
+        <p>The cost of poor software quality and over-engineered bloat is staggering. According to the <span class="highlight">Consortium for Information & Software Quality (CISQ) 2022 Report</span>, poor software quality cost the U.S. economy at least $2.41 trillion. Of that, $1.52 trillion is accumulated technical debt—the direct result of vendors choosing complex, high-maintenance stacks over practical, context-appropriate solutions.</p>
+
+        <h2>The Protocol</h2>
+        <p>The ANTI-IT Protocol was engineered to destroy this asymmetry. We do not write code. We deconstruct estimates. By passing vendor proposals through our forensic heuristic engine, we expose padded budgets, unnecessary microservices, and hidden maintenance traps before a single contract is signed. We arm the client with the truth.</p>
+
+        <div class="source-box">
+            <h3>[ VERIFIED_EXTERNAL_DATA_SOURCES ]</h3>
+            <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value" target="_blank" rel="nofollow" class="ext-link">> SOURCE_01: McKinsey & Oxford University Joint Study</a>
+            <a href="https://www.it-cisq.org/the-cost-of-poor-quality-software-in-the-us-a-2022-report/" target="_blank" rel="nofollow" class="ext-link">> SOURCE_02: CISQ 2022 Report on Software Quality Costs</a>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn"><< RETURN_TO_SCANNER</a>
+        </div>
+    </div>
+</body>
+</html>
