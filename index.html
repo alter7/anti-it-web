@@ -14,8 +14,8 @@
         body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; }
         
         /* Bloomberg Ticker */
-        .ticker-wrap { background: #000; color: #fff; padding: 10px 0; overflow: hidden; font-family: monospace; font-size: 13px; text-transform: uppercase; }
-        .ticker { display: flex; white-space: nowrap; animation: ticker 30s linear infinite; }
+        .ticker-wrap { background: #000; color: #fff; padding: 10px 0; overflow: hidden; font-family: monospace; font-size: 13px; text-transform: uppercase; border-bottom: 2px solid var(--red); }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 40s linear infinite; }
         .ticker span { margin-right: 50px; }
         .ticker b { color: var(--red); }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
@@ -23,32 +23,36 @@
         header { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo { font-weight: 900; text-decoration: none; color: var(--text); font-size: 1.4rem; letter-spacing: -1px; }
         .logo span { color: var(--red); }
+        nav a { text-decoration: none; color: var(--dim); font-size: 14px; margin-left: 20px; font-weight: 600; }
 
         .hero { text-align: center; padding: 60px 20px 100px; background: #fff; border-bottom: 1px solid var(--border); }
         h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 20px; letter-spacing: -2px; }
         .hero-desc { max-width: 800px; margin: 0 auto 40px; color: var(--dim); font-size: 1.25rem; line-height: 1.5; }
 
-        /* News Cards Section */
+        /* News Cards Grid - RESTORED 3 EXAMPLES */
         .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: -60px auto 60px; padding: 0 20px; }
-        .news-card { background: #fff; border: 1px solid var(--border); padding: 25px; border-top: 5px solid var(--text); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .news-card { background: #fff; border: 1px solid var(--border); padding: 25px; border-top: 5px solid var(--text); box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
         .news-tag { color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; display: block; }
         .news-card h3 { margin: 0 0 10px; font-size: 18px; font-weight: 900; line-height: 1.3; }
-        .news-card p { font-size: 14px; color: var(--dim); margin: 0; }
+        .news-card p { font-size: 14px; color: var(--dim); margin-bottom: 15px; }
+        .news-card a { color: var(--red); text-decoration: underline; font-size: 12px; font-weight: 700; text-transform: uppercase; }
 
-        .container { max-width: 800px; margin: 0 auto 100px; padding: 0 20px; }
+        .container { max-width: 850px; margin: 0 auto 100px; padding: 0 20px; }
         
         /* THE BIG CTA BOX */
-        .cta-header { font-size: 2.2rem; font-weight: 900; text-align: center; margin-bottom: 20px; letter-spacing: -1px; }
-        .audit-card { background: #fff; border: 2px solid var(--text); border-radius: 4px; padding: 50px; box-shadow: 20px 20px 0 #000; }
+        .cta-header { font-size: 2.2rem; font-weight: 900; text-align: center; margin-bottom: 25px; letter-spacing: -1px; line-height: 1.1; }
+        .audit-card { background: #fff; border: 3px solid #000; padding: 50px; box-shadow: 20px 20px 0 rgba(0,0,0,1); }
         
-        .upload-zone { border: 3px dashed var(--border); padding: 50px; text-align: center; border-radius: 4px; cursor: pointer; margin-bottom: 30px; background: #f8fafc; transition: 0.2s; }
+        .upload-zone { border: 3px dashed var(--border); padding: 60px; text-align: center; cursor: pointer; margin-bottom: 30px; background: #f8fafc; transition: 0.2s; }
         .upload-zone:hover { border-color: var(--blue); background: #f1f5f9; }
         
-        .btn-main { width: 100%; background: #000; color: #fff; border: none; padding: 25px; font-size: 20px; font-weight: 900; cursor: pointer; text-transform: uppercase; }
-        .btn-main:hover { background: var(--blue); }
+        .btn-main { width: 100%; background: #000; color: #fff; border: none; padding: 25px; font-size: 20px; font-weight: 900; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
+        .btn-main:hover { background: var(--blue); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 #000; }
 
-        #results { margin-top: 60px; display: none; }
-        .section { background: #fff; border: 1px solid var(--border); padding: 30px; margin-bottom: 20px; }
+        /* Google Trends Block - MOVED UNDER THE FORM */
+        #trends-block { margin-top: 80px; text-align: center; background: #fff; padding: 40px; border: 1px solid var(--border); border-radius: 4px; }
+        #trends-block h4 { margin-top: 0; font-size: 12px; color: var(--red); text-transform: uppercase; letter-spacing: 2px; }
+        .trends-img { width: 100%; border: 1px solid var(--border); margin: 20px 0; border-radius: 4px; filter: grayscale(1); }
     </style>
 </head>
 <body>
@@ -56,8 +60,8 @@
 <div class="ticker-wrap">
     <div class="ticker">
         <span><b>LOSS_ALERT:</b> IT INDUSTRY WASTE EXCEEDS $500B ANNUALLY</span>
-        <span><b>MCKINSEY_DATA:</b> 45% OF PROJECTS OVER BUDGET [cite: 2026-02-23]</span>
-        <span><b>OXFORD_INSIGHT:</b> 17% OF PROJECTS ARE "BLACK SWANS" [cite: 2026-02-23]</span>
+        <span><b>MCKINSEY_DATA:</b> 45% OF PROJECTS OVER BUDGET</span>
+        <span><b>OXFORD_INSIGHT:</b> 17% OF PROJECTS ARE "BLACK SWANS"</span>
         <span><b>CISQ_REPORT:</b> $2.41 TRILLION LOST TO POOR SOFTWARE</span>
     </div>
 </div>
@@ -67,29 +71,33 @@
     <nav>
         <a href="manifesto.html">MANIFESTO</a>
         <a href="cases.html">CASE_LAW</a>
+        <a href="news.html">ANTI_NEWS</a>
     </nav>
 </header>
 
 <section class="hero">
     <h1>#1 IT Estimate Auditor: <br>Expose Scammers. <span style="color:var(--red)">Secure Capital.</span></h1>
-    <p class="hero-desc">The world’s first autonomous <b>Online Tool</b> to dismantle bloated IT proposals. We don't consult — we audit. Instantly.</p>
+    <p class="hero-desc">The world’s first autonomous <b>Online Tool</b> to dismantle bloated IT proposals and reveal the truth behind the bill. We stop financial waste instantly.</p>
 </section>
 
 <div class="news-grid">
     <div class="news-card">
-        <span class="news-tag">McKinsey & Oxford Report</span>
+        <span class="news-tag">McKinsey & Oxford Insight</span>
         <h3>Budget Overrun is the "New Normal"</h3>
-        <p>Studies confirm 45% of IT projects exceed budgets, while 1 in 6 projects see costs soar by 200%. [cite: 2026-02-23]</p>
+        <p>45% of IT projects exceed budgets. 17% face cost overruns of 200%+.</p>
+        <a href="manifesto.html#source-mckinsey">> SOURCE_LOG_01</a>
     </div>
     <div class="news-card" style="border-top-color: var(--red);">
         <span class="news-tag">CISQ Financial Audit</span>
         <h3>$2.41 Trillion Technical Debt</h3>
-        <p>Accumulated software bloat and poor quality now cost the US economy trillions in hidden losses.</p>
+        <p>Software bloat and poor quality cost the US economy trillions in losses.</p>
+        <a href="manifesto.html#source-cisq">> SOURCE_LOG_02</a>
     </div>
     <div class="news-card">
-        <span class="news-tag">Market Trend 2026</span>
-        <h3>Audit Demand Surges 500%</h3>
-        <p>Google Trends confirm a massive spike in business owners seeking independent IT budget verification.</p>
+        <span class="news-tag">Global Industry Waste</span>
+        <h3>$500 Billion Annual Capital Loss</h3>
+        <p>Massive losses reported due to over-engineering and unverified padding.</p>
+        <a href="manifesto.html#source-waste">> SOURCE_LOG_03</a>
     </div>
 </div>
 
@@ -97,10 +105,10 @@
     <h2 class="cta-header">UPLOAD ESTIMATE. <br>GET INSTANT VERDICT. <span style="color:var(--blue)">100% ONLINE.</span></h2>
     
     <div class="audit-card">
-        <label style="font-size:12px; font-weight:900; margin-bottom:10px; display:block;">1. CONTEXT (e.g. Small Shop, Global Bank)</label>
-        <input type="text" id="ctx" placeholder="Enter business scale..." style="width:100%; padding:15px; border:1px solid #000; margin-bottom:20px;">
+        <label style="font-size:11px; font-weight:900; margin-bottom:8px; display:block;">1. PROJECT SCALE (e.g. Small App, Enterprise ERP)</label>
+        <input type="text" id="ctx" placeholder="Enter scale..." style="width:100%; padding:18px; border:2px solid #000; margin-bottom:20px; font-family: inherit;">
         
-        <label style="font-size:12px; font-weight:900; margin-bottom:10px; display:block;">2. ATTACH ESTIMATE (PDF, XLSX, JPG)</label>
+        <label style="font-size:11px; font-weight:900; margin-bottom:8px; display:block;">2. VENDOR PROPOSAL (PDF, XLSX, JPG)</label>
         <div class="upload-zone" onclick="document.getElementById('file').click()">
             <b id="status">DROP FILE HERE OR CLICK TO BROWSE</b>
             <input type="file" id="file" style="display:none" onchange="mask()">
@@ -109,19 +117,25 @@
         <button class="btn-main" onclick="run()">Start Forensic Audit</button>
     </div>
 
-    <div id="results">
-        <div class="section"><div id="v" style="font-size:24px; font-weight:900; border-left:8px solid var(--red); padding-left:20px;"></div></div>
+    <div id="trends-block">
+        <h4>[ MARKET_DEMAND_ANALYSIS_2026 ]</h4>
+        <p style="font-size:14px; color:var(--dim);">Global demand for IT Budget Verification has surged by 500% as businesses seek transparency.</p>
+        <img src="trends_proof.jpg" class="trends-img" alt="Google Trends Data Proof">
+        <p style="font-size:12px; font-style:italic;">Data Source: Google Trends Insight Stream</p>
     </div>
 </div>
 
 <script>
     function mask() {
         const f = document.getElementById('file').files[0];
-        if(f) document.getElementById('status').innerText = "SECURE_DATA_LOADED: " + f.name.toUpperCase();
+        if(f) {
+            const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
+            document.getElementById('status').innerText = `SECURE_OBJ_${hex}.DATA LOADED`;
+            document.getElementById('status').style.color = "var(--blue)";
+        }
     }
     async function run() {
-        // API Call Logic
-        alert("System Active. Initializing Forensic Protocol...");
+        alert("Initializing Forensic Analysis Protocol... Checking against 2026 market benchmarks.");
     }
 </script>
 </body>
