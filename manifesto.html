@@ -26,10 +26,14 @@
         .source-box h4 { margin: 0 0 10px; color: var(--red); font-size: 12px; text-transform: uppercase; }
         .source-link { font-size: 11px; color: var(--dim); text-decoration: underline; display: block; margin-top: 15px; }
 
+        /* LIST STYLES FOR ADVERSARY SECTION */
+        .threat-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
+        .threat-list li { background: #f8fafc; border-left: 4px solid #020617; padding: 20px; margin-bottom: 15px; font-size: 1.05rem; }
+        .threat-list li strong { color: var(--red); display: block; margin-bottom: 5px; font-size: 1.2rem; }
+
         .alliance { background: #eff6ff; border-left: 8px solid var(--blue); padding: 40px; margin: 60px 0; }
         .alliance h3 { margin-top: 0; color: var(--blue); font-size: 1.5rem; }
 
-        /* FIXED MISSION BOX */
         .mission-box { background: #000; color: #fff; padding: 80px 60px; text-align: center; margin-top: 80px; position: relative; }
         .mission-box p { color: #ffffff; opacity: 0.9; }
         .free-tag { background: var(--red); color: #fff; padding: 8px 15px; font-weight: 900; text-transform: uppercase; font-size: 12px; margin-bottom: 30px; display: inline-block; vertical-align: middle; }
@@ -73,7 +77,24 @@
 
     <section>
         <h2>03. THE ADVERSARY</h2>
-        <p>Our enemy is Predatory Architecture. Vendors who propose a "Crane" for a "Mover's" task. This practice has become an <b>astronomical tax on every global economy</b>, stifling innovation and draining capital that belongs elsewhere.</p>
+        <p>Our enemy is the <b>Predatory Vendor</b>. The agencies and architects who weaponize complexity against their clients. We have identified their three core strategies of capital extraction:</p>
+        
+        <ul class="threat-list">
+            <li>
+                <strong>Architectural Over-Engineering</strong>
+                Deploying a nuclear reactor to boil water. Proposing massive, enterprise-grade complexity for straightforward business tasks solely to artificially inflate billable hours.
+            </li>
+            <li>
+                <strong>The Open-Source Mirage</strong>
+                Taking free, community-built open-source software, slapping a minor custom interface on it, and selling it to the client as a premium, proprietary product.
+            </li>
+            <li>
+                <strong>Vendor Lock-In & Hidden Hooks</strong>
+                Embedding intentional dependencies, undocumented code, and forced "maintenance retainers" to hold the client's business hostage indefinitely.
+            </li>
+        </ul>
+
+        <p>This practice has become an <b>astronomical tax on the global economy</b>, stifling innovation and draining capital that belongs elsewhere.</p>
         
         <div class="source-box" id="source-cisq" style="border-left-color: var(--blue);">
             <h4>EVIDENCE: THE COST OF POOR CODE</h4>
