@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTI-IT | About The Founder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #020617; --dim: #64748b; --red: #b91c1c; --blue: #2563eb; --border: #e2e8f0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        
+        /* UNIVERSAL HEADER */
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .main-nav { display: flex; align-items: center; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #020617; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 15px; color: #cbd5e1; font-weight: 300; user-select: none; }
+
+        .container { max-width: 850px; margin: 80px auto; padding: 0 40px; }
+        h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -3px; margin-bottom: 40px; text-transform: uppercase; }
+        h2 { font-size: 1.8rem; font-weight: 900; margin-top: 60px; color: #000; border-bottom: 4px solid var(--red); display: inline-block; padding-bottom: 5px; margin-bottom: 25px;}
+        
+        p { font-size: 1.15rem; margin-bottom: 25px; color: #334155; }
+        .quote { font-style: italic; border-left: 5px solid var(--border); padding-left: 20px; color: var(--dim); margin: 40px 0; font-size: 1.3rem; }
+        
+        .biography-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+        .bio-item { background: #f8fafc; padding: 40px; border: 1px solid var(--border); }
+        .bio-item h3 { margin-top: 0; font-weight: 900; text-transform: uppercase; font-size: 1.2rem; }
+
+        /* THE IRONIC DEDICATION */
+        .dedication-box { background: #000; color: #fff; padding: 60px; margin-top: 80px; text-align: center; border: 10px solid var(--red); }
+        .dedication-box h3 { font-size: 2rem; font-weight: 900; color: var(--red); text-transform: uppercase; margin-bottom: 20px; }
+        .dedication-box p { color: #fff; font-size: 1.3rem; font-weight: 500; font-style: italic; }
+
+        .footer-cta { margin-top: 100px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; }
+        .btn-action { display: inline-block; background: #000; color: #fff; padding: 20px 40px; text-decoration: none; font-weight: 900; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<header class="universal-header">
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link">DO FREE AUDIT</a>
+        <span class="divider">|</span>
+        <a href="pricing.html" class="nav-link">AUDIT PLUS</a>
+        <span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
+        <span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a>
+        <span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a>
+        <span class="divider">|</span>
+        <a href="scandals.html" class="nav-link">SCANDALS</a>
+        <span class="divider">|</span>
+        <a href="about.html" class="nav-link active">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>The Mind Behind <br>the Protocol</h1>
+    
+    <p class="section-lead" style="font-size: 1.5rem; font-weight: 700; color: #000;">I have been deconstructing digital structures for 20 years. Before AI was a trend, it was a mathematical necessity.</p>
+
+    <div class="quote">
+        "Information is information, not matter or energy. No materialism which does not admit this can survive at the present day." <br>
+        — Norbert Wiener
+    </div>
+
+    <section>
+        <h2>THE PATH</h2>
+        <p>My journey didn't start in a coding bootcamp. It began in the deep study of <b>Information Theory</b> and the semantic structures of text. As a journalist-researcher, I was obsessed with one question: how does pure information translate into material value—or material waste?</p>
+        <p>I witnessed the internet's evolution from its infancy to its current state of bloated complexity. In 2012, I demonstrated that complexity is often an illusion by redesigning and simplifying the Facebook interface in just 3 days—a project that proved user-centric logic always wins over architectural bloat.</p>
+    </section>
+
+    <div class="biography-grid">
+        <div class="bio-item">
+            <h3>20 Years of Forensics</h3>
+            <p>I have audited hundreds of estimates, identifying the same patterns of deception across decades. I don't see "code"; I see the intent behind the hours.</p>
+        </div>
+        <div class="bio-item">
+            <h3>Metaphysical Foundations</h3>
+            <p>Our protocol is built on the fundamental principles of Cybernetics. We treat an IT estimate not as a document, but as a closed system that must obey the laws of efficiency.</p>
+        </div>
+    </div>
+
+    <div class="dedication-box">
+        <h3>A Special Dedication</h3>
+        <p>"This project is dedicated to the hundreds of dishonest programmers and predatory vendors who have tried to deceive me over the last two decades. If you hadn't existed, if you hadn't been so greedy and opaque, I would never have had the reason to build this weapon. Thank you for the motivation."</p>
+    </div>
+
+    <div class="footer-cta">
+        <p>Join the movement for architectural rationality.</p>
+        <a href="index.html" class="btn-action">Run Your Free Audit Now</a>
+    </div>
+</div>
+
+</body>
+</html>
