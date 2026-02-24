@@ -5,6 +5,280 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>ANTI-IT | #1 Forensic IT Estimate Auditor & Software Audit</title>
+    <meta name="description" content="Upload your software development quote. Our forensic IT audit exposes hidden hours, over-engineering, and vendor lock-in. Get an objective IT analysis now.">
+    <meta name="keywords" content="it audit, software audit, it analysis, check developer estimate, software quote audit, it cost, it budget">
+    
+    <meta property="og:title" content="Forensic IT Estimate Auditor">
+    <meta property="og:description" content="Don't sign a blind contract. We expose bloated IT quotes and architectural waste.">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f3f4f6; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #cbd5e1; --green: #166534; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.4; position: relative; }
+        
+        /* HEADER */
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .main-nav { display: flex; align-items: center; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #020617; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 10px; color: #cbd5e1; font-weight: 300; }
+
+        /* VIDEO BACKGROUND */
+        .hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 750px; overflow: hidden; z-index: 0; }
+        #bg-video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.7) brightness(0.35); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(2,6,23,0.3) 0%, rgba(243,244,246,1) 100%); }
+
+        /* TICKER */
+        .ticker-wrap { background: #000; color: #fff; padding: 8px 0; overflow: hidden; font-family: monospace; font-size: 11px; text-transform: uppercase; border-bottom: 2px solid var(--red); position: relative; z-index: 10; }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 45s linear infinite; }
+        .ticker span { margin-right: 60px; font-weight: bold; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* HERO - COMPACT */
+        .hero { text-align: center; padding: 30px 20px 50px; position: relative; z-index: 5; }
+        h1 { font-size: 3.2rem; font-weight: 900; letter-spacing: -2px; text-transform: uppercase; line-height: 1; margin-bottom: 12px; color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .hero .accent { color: var(--red); }
+        .hero-desc { max-width: 800px; margin: 0 auto; color: #e2e8f0; font-size: 1.1rem; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+
+        /* NEWS CARDS */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; max-width: 1100px; margin: -30px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
+        .news-card { background: #fff; border: 1px solid var(--border); padding: 18px; border-top: 5px solid #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .news-tag { color: var(--red); font-weight: 900; font-size: 10px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .news-card h3 { margin: 0 0 5px; font-size: 1.1rem; }
+        .news-card p { font-size: 13px; color: var(--dim); margin: 0 0 10px 0; }
+        .source-link { font-size: 10px; font-weight: 900; color: var(--text); text-decoration: underline; text-transform: uppercase; }
+
+        /* AUDIT CARD */
+        .container { max-width: 900px; margin: 0 auto 80px; padding: 0 20px; position: relative; z-index: 10; }
+        .audit-card { background: #fff; border: 4px solid #000; padding: 35px; box-shadow: 15px 15px 0 #000; }
+        .field-label { font-size: 11px; font-weight: 900; margin-bottom: 6px; display: block; text-transform: uppercase; }
+        .input-text { width: 100%; padding: 12px; border: 2px solid #000; margin-bottom: 15px; font-family: inherit; font-size: 14px; box-sizing: border-box; background: #f8fafc; }
+        .dropzone { border: 3px dashed var(--border); padding: 35px; text-align: center; cursor: pointer; margin-bottom: 20px; background: #f8fafc; transition: 0.2s; }
+        .dropzone:hover { border-color: #000; background: #e2e8f0; }
+        .btn-main { width: 100%; background: #000; color: #fff; border: none; padding: 18px; font-size: 18px; font-weight: 900; cursor: pointer; text-transform: uppercase; }
+        .btn-main:hover { background: var(--blue); transform: translate(-3px, -3px); box-shadow: 6px 6px 0 #000; }
+
+        /* GOOGLE TRENDS BLOCK (RESTORED) */
+        #trends-block { margin: 40px 0; text-align: center; background: #fff; padding: 40px 30px; border: 1px solid var(--border); }
+        .trends-img { width: 100%; max-width: 800px; border: 1px solid var(--border); margin: 20px 0; filter: grayscale(1); }
+
+        /* METHODOLOGY & FAQ */
+        .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .method-block { background: #fff; border: 1px solid var(--border); padding: 20px; border-left: 6px solid var(--red); text-align: left; }
+        .method-block h4 { margin: 0 0 8px; font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .method-block p { margin: 0; font-size: 13px; color: var(--dim); }
+
+        .faq-section { margin-top: 60px; text-align: left; }
+        .faq-item { margin-bottom: 25px; }
+        .faq-item h5 { font-weight: 900; font-size: 1.1rem; margin-bottom: 8px; text-transform: uppercase; }
+        .faq-item p { color: var(--dim); font-size: 14px; margin: 0; }
+
+        /* SANDBOX */
+        .sandbox-block { margin: 40px 0; text-align: center; padding: 30px; border: 3px dashed var(--border); background: #fff; }
+        .btn-demo { padding: 10px 20px; color: #fff; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; margin: 5px; font-size: 11px; }
+
+        /* TERMINAL & MODALS */
+        #console-container { display: none; background: #020617; color: #22c55e; font-family: monospace; padding: 30px; margin-top: 40px; border: 4px solid #000; box-shadow: 20px 20px 0 #000; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-content { background: #fff; max-width: 600px; width: 90%; padding: 40px; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; }
+        
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="hero-video-container">
+    <video autoplay muted loop id="bg-video">
+        <source src="audit-tech-bg.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+</div>
+
+<div class="ticker-wrap">
+    <div class="ticker">
+        <span><b>LOSS_ALERT:</b> IT INDUSTRY WASTE EXCEEDS $500B ANNUALLY [cite: 2026-02-23]</span>
+        <span><b>MCKINSEY_DATA:</b> 45% OF PROJECTS EXCEED BUDGET [cite: 2026-02-23]</span>
+        <span><b>OXFORD_INSIGHT:</b> 17% OF PROJECTS ARE CATASTROPHIC "BLACK SWANS" [cite: 2026-02-23]</span>
+    </div>
+</div>
+
+<header class="universal-header">
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link active">DO FREE AUDIT</a>
+        <span class="divider">|</span>
+        <a href="pricing.html" class="nav-link">AUDIT PLUS</a>
+        <span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
+        <span class="divider">|</span>
+        <a href="about.html" class="nav-link">ABOUT US</a>
+        <span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a>
+        <span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a>
+        <span class="divider">|</span>
+        <a href="scandals.html" class="nav-link">SCANDALS</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>#1 IT Estimate Auditor: <br>Expose Scammers. <span class="accent">Secure Capital.</span></h1>
+    <p class="hero-desc">The world’s first autonomous Forensic IT Analysis protocol. Dismantle bloated software audit proposals instantly [cite: 2026-01-19].</p>
+</section>
+
+<div class="news-grid" style="margin-bottom: 30px;">
+    <div class="news-card" style="display: flex; flex-direction: column; padding: 15px 20px;">
+        <span class="news-tag">Systemic Failure</span>
+        <h3>The Budget Gap</h3>
+        <p style="flex-grow: 1; margin-bottom: 15px;">45% of IT projects exceed estimates while delivering 56% less value.</p>
+        <a href="manifesto.html#source-mckinsey" class="source-link">Source: McKinsey & Oxford</a>
+    </div>
+    <div class="news-card" style="border-top-color: var(--red); display: flex; flex-direction: column; padding: 15px 20px;">
+        <span class="news-tag">Overpriced projects</span>
+        <h3>$2.41 Trillion Loss</h3>
+        <p style="flex-grow: 1; margin-bottom: 15px;">Annual losses in the US driven by Technical Debt and Over-engineering.</p>
+        <a href="manifesto.html#source-cisq" class="source-link">Source: CISQ</a>
+    </div>
+    <div class="news-card" style="display: flex; flex-direction: column; padding: 15px 20px;">
+        <span class="news-tag">Low performance</span>
+        <h3>The CHAOS Report</h3>
+        <p style="flex-grow: 1; margin-bottom: 15px;">Only 31% of IT projects succeed. 50% face severe budget and time overruns, and 19% are completely cancelled.</p>
+        <a href="manifesto.html#source-standish" class="source-link">Source: Standish Group (CHAOS Report)</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="audit-card" id="main-audit-form">
+        <label class="field-label">1. Project Context (Business Goal)</label>
+        <input type="text" id="ctx" class="input-text" placeholder="e.g. Booking System for 3 Clinics">
+        
+        <label class="field-label">2. Vendor Geography (For Rate Tensors)</label>
+        <input type="text" id="location" class="input-text" placeholder="e.g. USA, Europe, India">
+        
+        <label class="field-label">3. Attach Proposal (IT Analysis Document)</label>
+        <div class="dropzone" onclick="document.getElementById('file').click()">
+            <b id="status">DROP ESTIMATE HERE OR CLICK TO BROWSE</b>
+            <input type="file" id="file" class="hidden" onchange="mask()">
+        </div>
+        <button class="btn-main" onclick="runRealAudit()">Start Free Forensic IT Audit</button>
+    </div>
+
+    <div id="console-container">
+        <div id="console-logs"></div>
+        <div id="verdict-box" class="verdict-box" style="margin-top:20px; font-weight:900; border:4px solid;"></div>
+    </div>
+
+    <div id="trends-block">
+        <h4 style="color: var(--red); font-family: monospace; font-size: 14px; text-transform: uppercase;">[ MARKET SHIFT 2026 ]</h4>
+        <h3 style="font-size: 1.8rem; margin: 10px 0; text-transform: uppercase; font-weight: 900;">The Era of Blind Contracts is Over</h3>
+        <p style="color: var(--dim); max-width: 700px; margin: 0 auto; font-size: 1.1rem;">Independent forensic IT analysis demand has grown 500%. Secure your capital by verifying software audit data before signing [cite: 2026-02-24].</p>
+        <img src="trends_proof.jpg" alt="Google Trends Data" class="trends-img">
+    </div>
+
+    <div class="method-grid">
+        <div class="method-block">
+            <h4>Architectural Ego Filter</h4>
+            <p>Identifying over-complex technologies pushed by developers to pad their resumes [cite: 2026-01-19].</p>
+        </div>
+        <div class="method-block">
+            <h4>Hidden Hours Detector</h4>
+            <p>Exposing fake QA cycles and bloated management fees in your IT budget [cite: 2026-01-19].</p>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-item">
+            <h5>What is a Forensic Software Audit?</h5>
+            <p>It is a deep semantic and architectural IT analysis designed to find hidden costs and inefficiencies in development estimates [cite: 2026-01-19].</p>
+        </div>
+        <div class="faq-item">
+            <h5>Why should I use an Independent IT Audit?</h5>
+            <p>To avoid the 45% average budget overrun seen in most IT projects globally [cite: 2026-02-23].</p>
+        </div>
+    </section>
+
+    <div class="sandbox-block" id="sandbox">
+        <h4>No file ready? Test the engine.</h4>
+        <button class="btn-demo" style="background:var(--green)" onclick="openModal('modal-healthy')">View Fair Estimate</button>
+        <button class="btn-demo" style="background:var(--red)" onclick="openModal('modal-toxic')">View Toxic Estimate</button>
+    </div>
+</div>
+
+<div id="modal-healthy" class="modal-overlay">
+    <div class="modal-content" style="border-top: 5px solid var(--green)">
+        <span class="close-btn" onclick="closeModal('modal-healthy')">&times;</span>
+        <h2 style="font-weight:900">Sample A: Fair Baseline</h2>
+        <button class="btn-main" style="font-size:14px" onclick="runAuditSimulation('healthy')">Run Audit</button>
+    </div>
+</div>
+
+<div id="modal-toxic" class="modal-overlay">
+    <div class="modal-content" style="border-top: 5px solid var(--red)">
+        <span class="close-btn" onclick="closeModal('modal-toxic')">&times;</span>
+        <h2 style="font-weight:900">Sample B: Scammer Trap</h2>
+        <button class="btn-main" style="font-size:14px" onclick="runAuditSimulation('toxic')">Run Audit</button>
+    </div>
+</div>
+
+<script>
+    function mask() {
+        const f = document.getElementById('file').files[0];
+        if(f) document.getElementById('status').innerText = "READY: " + f.name.toUpperCase();
+    }
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+    const logsHealthy = ["INIT PROTOCOL...", "ANALYZING...", "> SaaS API detected.", "> Hours fair.", "DONE."];
+    const logsToxic = ["INIT PROTOCOL...", "! WARNING: Kubernetes bloat.", "! CRITICAL: Lock-in.", "DONE."];
+
+    function runAuditSimulation(type) {
+        document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
+        document.getElementById('main-audit-form').style.display = 'none';
+        document.getElementById('sandbox').style.display = 'none';
+        const consoleCont = document.getElementById('console-container');
+        const logsDiv = document.getElementById('console-logs');
+        const verdictBox = document.getElementById('verdict-box');
+        consoleCont.style.display = 'block';
+        logsDiv.innerHTML = '';
+        let delay = 0;
+        (type === 'healthy' ? logsHealthy : logsToxic).forEach(log => {
+            setTimeout(() => {
+                const el = document.createElement('div'); el.className = 'log-line';
+                if(log.includes('!')) el.style.color = '#ef4444';
+                el.innerText = log; logsDiv.appendChild(el);
+            }, delay); delay += 500;
+        });
+        setTimeout(() => {
+            verdictBox.style.display = 'block';
+            verdictBox.style.borderColor = type === 'healthy' ? '#22c55e' : '#ef4444';
+            verdictBox.innerText = type === 'healthy' ? 'VERDICT: GREEN LIGHT' : 'VERDICT: RED ALERT';
+        }, delay + 500);
+    }
+    function runRealAudit() {
+        if(!document.getElementById('file').files[0]) { alert("ATTACH FILE."); return; }
+        runAuditSimulation('toxic');
+    }
+</script>
+</body>
+</html>
+
+
+2 
+
+-----------------------------------------------
+1-1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ANTI-IT | #1 Forensic IT Estimate Auditor & Software Audit</title>
     <meta name="description" content="Stop overpaying. Our forensic IT audit and analysis protocol exposes scammers, hidden hours, and architectural waste in software estimates.">
     <meta name="keywords" content="it audit, software audit, it analysis, check developer estimate, software cost, it budget">
     
