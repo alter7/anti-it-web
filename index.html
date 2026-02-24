@@ -3,6 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Stop Overpaying | Forensic IT Estimate Auditor & Software Audit</title>
+    <meta name="description" content="Upload your software development quote. Our forensic IT audit exposes hidden hours, over-engineering, and vendor lock-in. Get an objective IT analysis now.">
+    <meta name="keywords" content="it audit, software audit, it analysis, check developer estimate, software quote audit, it cost">
+    
+    <meta property="og:title" content="Forensic IT Estimate Auditor">
+    <meta property="og:description" content="Don't sign a blind contract. We expose bloated IT quotes and architectural waste.">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #020617; --dim: #64748b; --red: #b91c1c; --border: #e2e8f0; --green: #166534; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.5; }
+        
+        /* HEADER */
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .main-nav { display: flex; align-items: center; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #020617; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 15px; color: #cbd5e1; font-weight: 300; user-select: none; }
+
+        /* COMPACT FIRST SCREEN */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        h1 { font-size: 3.2rem; font-weight: 900; letter-spacing: -2px; text-transform: uppercase; line-height: 1; margin-bottom: 15px; text-align: center; }
+        .subtitle { font-size: 1.1rem; font-weight: 700; text-align: center; color: var(--text); margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* COMPACT CARDS */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+        .feature-card { border: 2px solid #000; padding: 15px; background: #f8fafc; text-align: center; }
+        .feature-card h3 { color: var(--red); font-weight: 900; font-size: 1rem; margin: 0 0 5px 0; text-transform: uppercase; }
+        .feature-card p { font-size: 0.85rem; color: var(--dim); margin: 0; }
+
+        /* DROPZONE (MAIN WINDOW) */
+        .dropzone { border: 4px dashed var(--red); background: #fff; padding: 40px 20px; text-align: center; cursor: pointer; transition: 0.2s; box-shadow: 10px 10px 0 #000; margin-bottom: 40px; }
+        .dropzone:hover { background: #fef2f2; transform: translate(-2px, -2px); box-shadow: 12px 12px 0 #000; }
+        .dropzone-title { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .dropzone-desc { color: var(--dim); font-size: 0.95rem; margin-bottom: 20px; }
+        .btn-upload { background: #000; color: #fff; padding: 15px 30px; font-weight: 900; text-transform: uppercase; border: none; cursor: pointer; font-size: 1rem; }
+        
+        /* HUMANIZED METHODOLOGY SECTION */
+        .methodology-section { margin-top: 80px; padding-top: 40px; border-top: 2px solid var(--border); }
+        .methodology-section h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; border-left: 10px solid var(--red); padding-left: 15px; }
+        .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .method-block { background: #fff; border: 1px solid var(--border); padding: 25px; position: relative; }
+        .method-number { position: absolute; top: -15px; left: -15px; background: var(--red); color: #fff; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; }
+        .method-block h4 { margin: 0 0 10px 0; font-size: 1.1rem; font-weight: 900; text-transform: uppercase; }
+        .method-block p { margin: 0; font-size: 0.95rem; color: var(--dim); }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<header class="universal-header">
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link active">DO FREE AUDIT</a>
+        <span class="divider">|</span>
+        <a href="pricing.html" class="nav-link">AUDIT PLUS</a>
+        <span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
+        <span class="divider">|</span>
+        <a href="about.html" class="nav-link">ABOUT US</a>
+        <span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO: WHY AUDIT</a>
+        <span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a>
+        <span class="divider">|</span>
+        <a href="scandals.html" class="nav-link">SCANDALS</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Forensic IT Audit Protocol</h1>
+    <p class="subtitle">Upload your software development estimate. Our algorithm performs a deep IT analysis to expose hidden hours, over-engineering, and vendor lock-in.</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>100% Objective</h3>
+            <p>No human bias. Pure semantic analysis of your quote.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Instant Analysis</h3>
+            <p>Results in seconds, not weeks. Save your time and capital.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Zero Cost (Phase 1)</h3>
+            <p>The core software audit is currently free for all capital owners.</p>
+        </div>
+    </div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('file-upload').click()">
+        <div class="dropzone-title">Drop Estimate Here</div>
+        <div class="dropzone-desc">Accepts PDF, DOCX, XLSX, or plain text proposals.</div>
+        <button class="btn-upload">Select File</button>
+        <input type="file" id="file-upload" class="hidden">
+    </div>
+
+    <section class="methodology-section">
+        <h2>How We Audit: The Assessment Filters</h2>
+        <div class="method-grid">
+            
+            <div class="method-block">
+                <div class="method-number">1</div>
+                <h4>The Architectural Ego Filter</h4>
+                <p>We check if the developer is pushing complex, expensive technologies just to pad their own resume, rather than efficiently solving your specific business problem.</p>
+            </div>
+
+            <div class="method-block">
+                <div class="method-number">2</div>
+                <h4>Hidden Hours Detector</h4>
+                <p>We expose duplicated tasks, fake "QA cycles", and bloated project management fees that vendors use to artificially inflate the final IT cost.</p>
+            </div>
+
+            <div class="method-block">
+                <div class="method-number">3</div>
+                <h4>Vendor Lock-in Analysis</h4>
+                <p>We identify proprietary hooks and closed-source dependencies designed to hold your data hostage and keep you paying this specific vendor forever.</p>
+            </div>
+
+            <div class="method-block">
+                <div class="method-number">4</div>
+                <h4>Market Rate Benchmarking</h4>
+                <p>We cross-reference their quoted hourly rates against actual 2026 industry data to eliminate the "brand tax" and ensure you pay fair market value.</p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
+
+
+________________________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANTI-IT | #1 IT Estimate Auditor</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
