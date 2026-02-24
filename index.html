@@ -110,6 +110,377 @@
 <header class="universal-header print-hide">
     <a href="index.html" class="logo">ANTI<span>-IT</span></a>
     <nav class="main-nav">
+        <a href="index.html" class="nav-link active">DO FREE AUDIT</a>
+        <span class="divider">|</span>
+        <a href="pricing.html" class="nav-link">AUDIT PLUS</a>
+        <span class="divider">|</span>
+        <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
+        <span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a>
+        <span class="divider">|</span>
+        <a href="cases.html" class="nav-link">CASE LAW</a>
+        <span class="divider">|</span>
+        <a href="scandals.html" class="nav-link">SCANDALS</a>
+    </nav>
+</header>
+
+<section class="hero print-hide">
+    <h1>#1 IT Estimate Auditor: <br>Expose Scammers. <span class="accent">Secure Capital.</span></h1>
+    <p class="hero-desc">The world’s first autonomous Forensic Protocol designed to dismantle bloated IT proposals and reveal the truth behind the bill.</p>
+</section>
+
+<div class="news-grid print-hide">
+    <div class="news-card">
+        <span class="news-tag">Systemic Failure</span>
+        <h3>The Budget Gap</h3>
+        <p>45% of IT projects exceed estimates while delivering 56% less value.</p>
+    </div>
+    <div class="news-card" style="border-top-color: var(--red);">
+        <span class="news-tag">Economic Tax</span>
+        <h3>$2.41 Trillion Loss</h3>
+        <p>Annual losses in the US driven by Technical Debt and Over-engineering.</p>
+    </div>
+    <div class="news-card">
+        <span class="news-tag">Market Shift 2026</span>
+        <h3>Outcome Over Tools</h3>
+        <p>Investors are demanding outcome-based metrics, rejecting billable-hour bloat.</p>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="cta-header print-hide">UPLOAD ESTIMATE. <br>GET INSTANT VERDICT.</h2>
+    
+    <div class="audit-card print-hide" id="main-audit-form">
+        <label class="field-label">1. Project Context (Business Goal)</label>
+        <input type="text" id="ctx" class="input-text" placeholder="e.g. Booking System for 3 Clinics">
+        
+        <label class="field-label">2. Vendor Geography (For Rate Tensors)</label>
+        <input type="text" id="location" class="input-text" placeholder="e.g. USA, Eastern Europe, India">
+        
+        <label class="field-label">3. Attach Proposal / Statement of Work (PDF, DOCX)</label>
+        <div class="upload-zone" onclick="document.getElementById('file').click()">
+            <b id="status" style="font-size: 1.2rem;">DROP FILE HERE OR CLICK TO BROWSE</b>
+            <input type="file" id="file" style="display:none" onchange="mask()">
+        </div>
+        
+        <button class="btn-main" onclick="runRealAudit()">Start Free Forensic Audit</button>
+    </div>
+
+    <div id="console-container">
+        <h3 class="print-hide" style="color: #fff; margin-top: 0; font-family: 'Inter', sans-serif;">FORENSIC LOG:</h3>
+        <div id="console-logs"></div>
+        <div id="verdict-box" class="verdict-box"></div>
+    </div>
+
+    <div class="sandbox-block print-hide" id="sandbox">
+        <h4>No file ready? Test the engine.</h4>
+        <p style="color: var(--dim); margin-bottom: 25px;">Review our verified B2B examples and see how the forensic AI deconstructs them in real-time.</p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <button class="btn-demo healthy" onclick="openModal('modal-healthy')">View Fair Estimate</button>
+            <button class="btn-demo toxic" onclick="openModal('modal-toxic')">View Toxic Estimate</button>
+        </div>
+    </div>
+
+    <div id="trends-block" class="print-hide">
+        <h4 style="color: var(--red); font-family: monospace; font-size: 16px;">[ MARKET SHIFT 2026 ]</h4>
+        <h3 style="font-size: 2rem; margin: 10px 0; text-transform: uppercase; font-weight: 900;">The Era of Blind Contracts is Over</h3>
+        <p style="font-size: 1.2rem; color: var(--dim); max-width: 700px; margin: 0 auto;">Businesses are refusing blind IT contracts. Independent forensic budget verification demand has grown 500%. The era of unchecked estimates is over.</p>
+        <img src="trends_proof.jpg" alt="Google Trends Data" class="trends-img">
+    </div>
+</div>
+
+<div id="modal-healthy" class="modal-overlay print-hide">
+    <div class="modal-content" style="border-top: 5px solid var(--green);">
+        <span class="close-btn" onclick="closeModal('modal-healthy')">&times;</span>
+        <span style="color: var(--green); font-weight: 900; font-size: 11px; text-transform: uppercase;">Sample Document A: The Fair Baseline</span>
+        <h2 style="margin: 10px 0 5px; font-weight: 900;">Commercial Proposal: Booking System Integration</h2>
+        <p style="color: var(--dim); margin-top: 0;"><b>Goal:</b> Patient booking system for 3 local clinics.</p>
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+        <p><b>Approach:</b> Low-Code SaaS Integration (YCLIENTS API + Webflow)</p>
+        <ul class="modal-list">
+            <li>Business Analysis & Account Setup: <b>10 hrs</b></li>
+            <li>Frontend Widget Integration: <b>15 hrs</b></li>
+            <li>Payment Gateway Configuration: <b>8 hrs</b></li>
+            <li>Staff Training & Launch: <b>18 hrs</b></li>
+        </ul>
+        <div class="modal-total" style="border-color: var(--green);">
+            <strong>TOTAL COST: $4,500</strong><br>
+            <span style="font-size: 12px; color: var(--dim);">*Monthly Maintenance: $0 (Direct SaaS subscription only)</span>
+        </div>
+        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background='var(--green)'" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('healthy')">Run Forensic Audit</button>
+    </div>
+</div>
+
+<div id="modal-toxic" class="modal-overlay print-hide">
+    <div class="modal-content" style="border-top: 5px solid var(--red);">
+        <span class="close-btn" onclick="closeModal('modal-toxic')">&times;</span>
+        <span style="color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase;">Sample Document B: The Scammer's Trap</span>
+        <h2 style="margin: 10px 0 5px; font-weight: 900;">Enterprise Healthcare Architecture Portal</h2>
+        <p style="color: var(--dim); margin-top: 0;"><b>Goal:</b> Patient booking system for 3 local clinics.</p>
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+        <p><b>Approach:</b> Custom Development From Scratch</p>
+        <ul class="modal-list">
+            <li>Discovery Phase & UX/UI Wireframing: <b>120 hrs</b></li>
+            <li>Frontend (React.js, Redux, Custom Animations): <b>240 hrs</b></li>
+            <li>Backend (Node.js, Microservices Architecture): <b>300 hrs</b></li>
+            <li>DevOps (Kubernetes Cluster Setup): <b>80 hrs</b></li>
+        </ul>
+        <div class="modal-total" style="border-color: var(--red);">
+            <strong>TOTAL COST: $78,000</strong><br>
+            <span style="font-size: 12px; color: var(--red); font-weight: 700;">*Mandatory SLA & Server Maintenance: $2,500 / month</span>
+        </div>
+        <button class="modal-btn" style="background: #000;" onmouseover="this.style.background='var(--red)'" onmouseout="this.style.background='#000'" onclick="runAuditSimulation('toxic')">Run Forensic Audit</button>
+    </div>
+</div>
+
+<script>
+    function mask() {
+        const f = document.getElementById('file').files[0];
+        if(f) document.getElementById('status').innerText = "SECURE_DATA_LOADED: " + f.name.toUpperCase();
+    }
+
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+    // THE FORENSIC ENGINE SIMULATION
+    const logsHealthy = [
+        "INITIALIZING PROTOCOL L-01...",
+        "DECONSTRUCTING SEMANTIC VECTORS...",
+        "ANALYZING WORK BREAKDOWN STRUCTURE...",
+        "> SaaS API mapping detected.",
+        "> Labor hours proportionate to business value.",
+        "CHECKING VENDOR LOCK-IN TRIGGERS...",
+        "> Zero proprietary dependencies found.",
+        "> SLA requirement: 0.",
+        "CALCULATING FINAL INTEGRITY SCORE..."
+    ];
+
+    const logsToxic = [
+        "INITIALIZING PROTOCOL L-01...",
+        "DECONSTRUCTING SEMANTIC VECTORS...",
+        "ANALYZING WORK BREAKDOWN STRUCTURE...",
+        "! WARNING: Kubernetes detected for simple CRUD task.",
+        "! WARNING: React.js SPA detected for static data portal.",
+        "CHECKING VENDOR LOCK-IN TRIGGERS...",
+        "! CRITICAL: Mandatory SLA $2,500/mo detected.",
+        "CROSS-REFERENCING MCKINSEY DATASETS...",
+        "> Over-engineering metric: +850% above baseline.",
+        "CALCULATING FINAL INTEGRITY SCORE..."
+    ];
+
+    function runAuditSimulation(type, isReal = false) {
+        document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
+        document.getElementById('main-audit-form').style.display = 'none';
+        document.getElementById('sandbox').style.display = 'none';
+        
+        const consoleCont = document.getElementById('console-container');
+        const logsDiv = document.getElementById('console-logs');
+        const verdictBox = document.getElementById('verdict-box');
+        
+        consoleCont.style.display = 'block';
+        logsDiv.innerHTML = '';
+        verdictBox.style.display = 'none';
+
+        const logs = type === 'healthy' ? logsHealthy : logsToxic;
+        let delay = 0;
+
+        logs.forEach((log, index) => {
+            setTimeout(() => {
+                const el = document.createElement('div');
+                el.className = 'log-line';
+                if(log.includes('! CRITICAL') || log.includes('! WARNING')) el.style.color = '#ef4444';
+                el.innerText = log;
+                logsDiv.appendChild(el);
+            }, delay);
+            delay += 600; 
+        });
+
+        setTimeout(() => {
+            verdictBox.style.display = 'block';
+            if (type === 'healthy') {
+                verdictBox.style.borderColor = '#22c55e';
+                verdictBox.style.color = '#22c55e';
+                verdictBox.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                verdictBox.innerHTML = 'VERDICT: GREEN LIGHT<br><span style="font-size:16px; font-weight:400; color:#fff; display:block; margin-top:10px;">Architectural Rationality Confirmed. No Lock-in detected.</span>';
+            } else {
+                verdictBox.style.borderColor = '#ef4444';
+                verdictBox.style.color = '#ef4444';
+                verdictBox.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                verdictBox.innerHTML = 'VERDICT: CRITICAL RED (SCAM ALERT)<br><span style="font-size:16px; font-weight:400; color:#fff; display:block; margin-top:10px;">Massive Over-Engineering. Vendor Lock-in traps detected. Do not sign.</span>';
+            }
+            
+            // DYNAMIC BUTTON LOGIC
+            const btnGroup = document.createElement('div');
+            btnGroup.style.cssText = "display:flex; gap:15px; margin-top:30px; flex-wrap:wrap;";
+
+            if (!isReal) {
+                // DEMO FLOW
+                const actionBtn = document.createElement('button');
+                actionBtn.style.cssText = "flex:1; padding:20px 40px; background:#fff; color:#000; font-size:18px; font-weight:900; cursor:pointer; border:none; text-transform:uppercase; transition:0.2s; width:100%;";
+                actionBtn.innerText = "NOW AUDIT YOUR ESTIMATE";
+                actionBtn.onmouseover = () => actionBtn.style.background = "#e2e8f0";
+                actionBtn.onmouseout = () => actionBtn.style.background = "#fff";
+                actionBtn.onclick = () => {
+                    consoleCont.style.display = 'none';
+                    document.getElementById('main-audit-form').style.display = 'block';
+                    document.getElementById('sandbox').style.display = 'block';
+                    document.getElementById('main-audit-form').scrollIntoView({behavior: 'smooth', block: 'center'});
+                };
+                verdictBox.appendChild(actionBtn);
+            } else {
+                // REAL AUDIT FLOW -> PRINT + UPGRADE
+                const printBtn = document.createElement('button');
+                printBtn.style.cssText = "flex:1; padding:20px 20px; background:#fff; color:#000; font-size:16px; font-weight:900; cursor:pointer; border:none; text-transform:uppercase; transition:0.2s;";
+                printBtn.innerText = "DOWNLOAD FREE REPORT (PDF)";
+                printBtn.onmouseover = () => printBtn.style.background = "#e2e8f0";
+                printBtn.onmouseout = () => printBtn.style.background = "#fff";
+                printBtn.onclick = () => window.print();
+                
+                const upgradeBtn = document.createElement('button');
+                upgradeBtn.style.cssText = "flex:1; padding:20px 20px; background:var(--red); color:#fff; font-size:16px; font-weight:900; cursor:pointer; border:none; text-transform:uppercase; transition:0.2s;";
+                upgradeBtn.innerText = "UPGRADE TO AUDIT PLUS ($100)";
+                upgradeBtn.onmouseover = () => upgradeBtn.style.background = "#991b1b";
+                upgradeBtn.onmouseout = () => upgradeBtn.style.background = "var(--red)";
+                upgradeBtn.onclick = () => window.location.href = 'pricing.html';
+
+                btnGroup.appendChild(printBtn);
+                btnGroup.appendChild(upgradeBtn);
+                verdictBox.appendChild(btnGroup);
+                
+                // Secondary link to reset
+                const resetLink = document.createElement('a');
+                resetLink.innerText = "Scan another document";
+                resetLink.style.cssText = "display:block; margin-top:20px; color:#94a3b8; font-size:14px; text-decoration:underline; cursor:pointer;";
+                resetLink.onclick = () => location.reload();
+                verdictBox.appendChild(resetLink);
+            }
+
+        }, delay + 500);
+    }
+
+    function runRealAudit() {
+        const file = document.getElementById('file').files[0];
+        if(!file) { alert("ERROR: PLEASE ATTACH ESTIMATE DOCUMENT."); return; }
+        // Pass "true" to trigger the print/PDF + Upgrade logic
+        runAuditSimulation('toxic', true); 
+    }
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTI-IT | #1 IT Estimate Auditor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f3f4f6; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #cbd5e1; --green: #166534; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; position: relative; }
+        
+        /* UNIVERSAL HEADER */
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .main-nav { display: flex; align-items: center; }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #020617; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 15px; color: #cbd5e1; font-weight: 300; user-select: none; }
+
+        /* VIDEO BG & TICKER */
+        .hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 850px; overflow: hidden; z-index: 0; }
+        #bg-video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.6) brightness(0.4); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(2,6,23,0.3) 0%, rgba(243,244,246,1) 100%); }
+
+        .ticker-wrap { background: #000; color: #fff; padding: 12px 0; overflow: hidden; font-family: monospace; font-size: 13px; text-transform: uppercase; border-bottom: 2px solid var(--red); position: relative; z-index: 10; }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 45s linear infinite; }
+        .ticker span { margin-right: 60px; font-weight: bold; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* HERO & CARDS */
+        .hero { text-align: center; padding: 80px 20px 100px; position: relative; z-index: 5; }
+        h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -3px; color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.5); text-transform: uppercase; }
+        .hero .accent { color: var(--red); }
+        .hero-desc { max-width: 800px; margin: 0 auto; color: #e2e8f0; font-size: 1.4rem; line-height: 1.5; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: -50px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+        .news-card { background: #fff; border: 1px solid var(--border); padding: 25px; border-top: 5px solid #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .news-tag { color: var(--red); font-weight: 900; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .news-card h3 { margin: 0 0 10px; font-size: 1.2rem; }
+        .news-card p { font-size: 14px; color: var(--dim); margin: 0; }
+
+        /* AUDIT FORM */
+        .container { max-width: 900px; margin: 0 auto 100px; padding: 0 20px; position: relative; z-index: 10; }
+        .cta-header { font-size: 2.8rem; font-weight: 900; text-align: center; margin-bottom: 30px; letter-spacing: -2px; line-height: 1.1; text-transform: uppercase; }
+        .audit-card { background: #fff; border: 4px solid #000; padding: 50px; box-shadow: 20px 20px 0 #000; }
+        .field-label { font-size: 11px; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; color: #000; }
+        .input-text { width: 100%; padding: 18px; border: 2px solid #000; margin-bottom: 25px; font-family: inherit; font-size: 16px; box-sizing: border-box; background: #f8fafc; }
+        .upload-zone { border: 3px dashed var(--border); padding: 50px; text-align: center; cursor: pointer; margin-bottom: 30px; background: #f8fafc; transition: 0.2s; }
+        .upload-zone:hover { border-color: #000; background: #e2e8f0; }
+        .btn-main { width: 100%; background: #000; color: #fff; border: none; padding: 25px; font-size: 22px; font-weight: 900; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
+        .btn-main:hover { background: var(--blue); transform: translate(-3px, -3px); box-shadow: 6px 6px 0 #000; }
+
+        /* SANDBOX BLOCK */
+        .sandbox-block { margin-top: 50px; text-align: center; padding: 40px; border: 3px dashed var(--border); background: #fff; }
+        .sandbox-block h4 { margin-top: 0; font-size: 1.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
+        .btn-demo { padding: 15px 30px; color: #fff; border: none; font-weight: 900; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: 0.2s; margin: 5px; }
+        .btn-demo.healthy { background: var(--green); }
+        .btn-demo.toxic { background: var(--red); }
+        .btn-demo:hover { transform: scale(1.05); }
+
+        /* MODALS */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-content { background: #fff; max-width: 600px; width: 90%; padding: 40px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; font-weight: 900; color: var(--dim); line-height: 1; }
+        .close-btn:hover { color: #000; }
+        .modal-list { font-size: 15px; color: #334155; line-height: 1.8; padding-left: 20px; margin-bottom: 25px; }
+        .modal-total { background: #f8fafc; padding: 20px; margin: 20px 0; border-left: 5px solid; font-size: 1.2rem; }
+        .modal-btn { width: 100%; padding: 20px; color: #fff; font-size: 18px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; transition: 0.2s; }
+
+        /* FORENSIC TERMINAL OUTPUT */
+        #console-container { display: none; background: #020617; color: #22c55e; font-family: monospace; padding: 30px; margin-top: 40px; border: 4px solid #000; box-shadow: 20px 20px 0 #000; }
+        .log-line { margin: 5px 0; font-size: 14px; opacity: 0; animation: fadeIn 0.1s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .verdict-box { margin-top: 30px; padding: 30px; text-align: center; font-weight: 900; font-size: 2rem; text-transform: uppercase; display: none; font-family: 'Inter', sans-serif; border: 4px solid; }
+
+        /* TRENDS */
+        #trends-block { margin-top: 100px; text-align: center; background: #fff; padding: 60px 40px; border: 1px solid var(--border); }
+        .trends-img { width: 100%; max-width: 800px; border: 1px solid var(--border); margin: 30px 0; filter: grayscale(1); }
+
+        /* PRINT STYLES */
+        @media print {
+            body * { visibility: hidden; }
+            #console-container, #console-container * { visibility: visible; }
+            #console-container { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: 2px solid #000; background: #fff; color: #000; }
+            .log-line { color: #000 !important; }
+            .verdict-box button, .print-hide { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero-video-container print-hide">
+    <video autoplay muted loop id="bg-video">
+        <source src="audit-tech-bg.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+</div>
+
+<div class="ticker-wrap print-hide">
+    <div class="ticker">
+        <span><b>LOSS_ALERT:</b> IT INDUSTRY WASTE EXCEEDS $500B ANNUALLY</span>
+        <span><b>MCKINSEY_DATA:</b> 45% OF PROJECTS EXCEED BUDGET</span>
+        <span><b>OXFORD_INSIGHT:</b> 17% OF PROJECTS ARE CATASTROPHIC "BLACK SWANS"</span>
+        <span><b>CISQ_REPORT:</b> $2.41 TRILLION LOST TO POOR SOFTWARE ARCHITECTURE</span>
+    </div>
+</div>
+
+<header class="universal-header print-hide">
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav class="main-nav">
         <a href="index.html" class="nav-link active">DO AUDIT</a>
         <span class="divider">|</span>
         <a href="how-it-works.html" class="nav-link">HOW IT WORKS</a>
