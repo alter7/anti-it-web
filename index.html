@@ -9,6 +9,133 @@
         :root { --bg: #f3f4f6; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #cbd5e1; --green: #166534; }
         body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; position: relative; }
         
+        .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--red); }
+        .nav-link { text-decoration: none; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; }
+        .nav-link.active { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
+        .divider { margin: 0 15px; color: #cbd5e1; }
+
+        .hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 850px; overflow: hidden; z-index: 0; }
+        #bg-video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.6) brightness(0.4); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(2,6,23,0.3) 0%, rgba(243,244,246,1) 100%); }
+
+        .container { max-width: 900px; margin: 0 auto 100px; padding: 0 20px; position: relative; z-index: 10; }
+        .audit-card { background: #fff; border: 4px solid #000; padding: 50px; box-shadow: 20px 20px 0 #000; }
+        .input-text { width: 100%; padding: 18px; border: 2px solid #000; margin-bottom: 25px; background: #f8fafc; }
+        .upload-zone { border: 3px dashed var(--border); padding: 50px; text-align: center; cursor: pointer; margin-bottom: 30px; background: #f8fafc; }
+        .btn-main { width: 100%; background: #000; color: #fff; border: none; padding: 25px; font-size: 22px; font-weight: 900; cursor: pointer; text-transform: uppercase; }
+
+        /* OUTPUT TERMINAL & VERDICT */
+        #console-container { display: none; background: #020617; color: #22c55e; font-family: monospace; padding: 30px; margin-top: 40px; border: 4px solid #000; }
+        .log-line { margin: 5px 0; font-size: 14px; opacity: 0; animation: fadeIn 0.1s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .verdict-box { margin-top: 30px; padding: 30px; text-align: center; font-weight: 900; display: none; border: 4px solid; }
+        
+        /* ACTION BUTTONS */
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+        .btn-action { flex: 1; padding: 20px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 14px; }
+        
+        @media print { body * { visibility: hidden; } #console-container, #console-container * { visibility: visible; } #console-container { position: absolute; left:0; top:0; width:100%; background:#fff; color:#000; } }
+    </style>
+</head>
+<body>
+
+<div class="hero-video-container">
+    <video autoplay muted loop id="bg-video"><source src="audit-tech-bg.mp4" type="video/mp4"></video>
+    <div class="video-overlay"></div>
+</div>
+
+<header class="universal-header">
+    <a href="index.html" class="logo">ANTI<span>-IT</span></a>
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link active">DO AUDIT</a><span class="divider">|</span>
+        <a href="pricing.html" class="nav-link">PRICING</a><span class="divider">|</span>
+        <a href="manifesto.html" class="nav-link">MANIFESTO</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1 style="text-align:center; color:#fff; font-size:3.5rem; text-shadow:0 4px 10px #000; margin: 100px 0 50px;">AUDIT YOUR <span style="color:var(--red)">CAPITAL</span></h1>
+    
+    <div class="audit-card" id="main-audit-form">
+        <input type="text" id="ctx" class="input-text" placeholder="Project Goal (e.g. Clinic Portal)">
+        <div class="upload-zone" onclick="document.getElementById('file').click()">
+            <b id="status">CLICK TO UPLOAD VENDOR ESTIMATE</b>
+            <input type="file" id="file" style="display:none" onchange="mask()">
+        </div>
+        <button class="btn-main" onclick="runRealAudit()">Run Forensic Audit</button>
+    </div>
+
+    <div id="console-container">
+        <div id="console-logs"></div>
+        <div id="verdict-box" class="verdict-box"></div>
+    </div>
+</div>
+
+<script>
+    function mask() { 
+        const f = document.getElementById('file').files[0];
+        if(f) document.getElementById('status').innerText = "LOADED: " + f.name.toUpperCase();
+    }
+
+    const logsToxic = [
+        "INITIALIZING PROTOCOL L-01...",
+        "DECONSTRUCTING SEMANTIC VECTORS...",
+        "> ! WARNING: Kubernetes detected for simple CRUD task.",
+        "> ! CRITICAL: Mandatory SLA $2,500/mo detected.",
+        "CALCULATING INTEGRITY SCORE..."
+    ];
+
+    function runRealAudit() {
+        document.getElementById('main-audit-form').style.display = 'none';
+        const consoleCont = document.getElementById('console-container');
+        const logsDiv = document.getElementById('console-logs');
+        const verdictBox = document.getElementById('verdict-box');
+        
+        consoleCont.style.display = 'block';
+        let delay = 0;
+
+        logsToxic.forEach((log) => {
+            setTimeout(() => {
+                const el = document.createElement('div');
+                el.className = 'log-line';
+                if(log.includes('!')) el.style.color = '#ef4444';
+                el.innerText = log;
+                logsDiv.appendChild(el);
+            }, delay);
+            delay += 600; 
+        });
+
+        setTimeout(() => {
+            verdictBox.style.display = 'block';
+            verdictBox.style.borderColor = '#ef4444';
+            verdictBox.style.color = '#ef4444';
+            verdictBox.innerHTML = `
+                VERDICT: CRITICAL RED (SCAM ALERT)
+                <div class="btn-group">
+                    <button class="btn-action" style="background:#fff; color:#000;" onclick="window.print()">Download Free Report</button>
+                    <button class="btn-action" style="background:#b91c1c; color:#fff;" onclick="window.location.href='pricing.html'">Upgrade to Audit Plus (+ Alternatives)</button>
+                </div>
+                <a href="index.html" style="display:block; margin-top:15px; font-size:12px; color:#94a3b8;">Check another document</a>
+            `;
+        }, delay + 500);
+    }
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTI-IT | #1 IT Estimate Auditor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f3f4f6; --text: #020617; --dim: #64748b; --blue: #2563eb; --red: #b91c1c; --border: #cbd5e1; --green: #166534; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; position: relative; }
+        
         /* UNIVERSAL HEADER */
         .universal-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #e2e8f0; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; text-decoration: none; color: #020617; font-size: 1.5rem; letter-spacing: -1px; }
